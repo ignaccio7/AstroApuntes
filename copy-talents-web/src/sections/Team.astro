@@ -1,0 +1,35 @@
+<section class="w-full flex overflow-x-hidden relative">
+  <div id="ubiqados" class="flex -ml-12">
+    <img src="/public/team/ubiqados.svg" alt="Ubiqados">
+    <img src="/public/team/ubiqados.svg" alt="Ubiqados">
+  </div>
+
+  <div class="absolute inset-0 flex justify-center items-center">
+    <button class={`uppercase text-transparent text-2xl font-bold tracking-tighter text-center
+      border-primary-green border-2 border-solid
+      hover:bg-primary-green hover:text-black
+      transition-all duration-700 ease-in
+      rounded-full size-[250px] 
+      px-10
+    `}>
+      ¿Quienes somos?
+    </button>
+  </div>
+</section>
+
+<style>
+  img {
+    width: 350vw;
+    max-width: 350vw;
+    height: auto;    
+  }
+
+  section #ubiqados{
+    transition-duration: 8s;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+  }
+  section:hover #ubiqados {
+    transform: translateX(-50%);
+  }
+</style>

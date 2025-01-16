@@ -1,0 +1,57 @@
+---
+interface Props {
+  imagen: string;
+  title: string;
+  className?: string;
+}
+
+const { title, imagen, className = "scale-105" } = Astro.props;
+---
+
+<img
+  class=`section-title w-full h-auto transform mb-2 ${className}`
+  src=`/titles/${imagen}.svg`
+  alt={title}
+/>
+
+<style>
+
+  .section-title {
+    transform: translateY(100%);
+  }
+
+  .show{
+    animation: fade-in 500ms ease-in both;
+  }
+
+  @keyframes fade-in {
+    100%{
+      transform: translateY(0)
+    }
+  }
+
+</style>
+
+<script>
+  const intersectionOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        entry.target.classList.toggle('show')
+        
+        observer.unobserve(entry.target)
+      }
+    });
+  }, intersectionOptions);
+
+  const $$titles = document
+    .querySelectorAll(".section-title")
+    .forEach(($title) => {
+      observer.observe($title)
+    });
+</script>

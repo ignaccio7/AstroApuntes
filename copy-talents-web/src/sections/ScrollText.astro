@@ -1,0 +1,202 @@
+<section id="text-stop" class="h-[300vh] relative border">
+  <div
+    class="flex flex-col justify-center items-center h-screen
+  font-bold text-center sticky top-0 z-10"
+  >
+    <div id="step-1" class="step flex flex-row gap-2">
+      <h3>
+        <span>x</span>
+        <span>y</span>
+        <span>z</span>
+      </h3>
+    </div>
+
+    <div id="step-2" class="step">
+      <h3 class="overflow-hidden">
+        <span>Tres generaciones,</span>
+      </h3>
+      <h3 class="overflow-hidden">
+        <span>tres coordenadas</span>
+      </h3>
+      <h3>
+        <span
+          >tres caminos
+          <span class="text-primary-green">...</span>
+        </span>
+      </h3>
+    </div>
+
+    <div id="step-3" class="step">
+      <h4 class="text-3xl">
+        <span class="text-primary-green">...</span>
+        para ProPlayer
+      </h4>
+      <h3 class="overflow-hidden">Tu carrera no terminara</h3>
+      <h3 class="overflow-hidden">
+        hasta que acabe la partida
+        <span class="text-primary-green">.</span>
+      </h3>
+    </div>
+
+    <div id="step-4" class="step">
+      <h4>
+        <span class="text-primary-green">...</span>
+        para ProPlayer
+      </h4>
+      <h3>
+        Tu contenido no tendra limites
+        <span class="text-primary-green">.</span>
+      </h3>
+    </div>
+
+    <div id="step-5" class="step">
+      <h4>
+        <span class="text-primary-green">...</span>
+        para ProPlayer
+      </h4>
+      <h3>
+        El valor de tu imagen nose medira en likes
+        <span class="text-primary-green">.</span>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<style>
+  .step {
+    @apply opacity-0 absolute overflow-hidden;
+  }
+
+  h3 {
+    @apply text-7xl;
+    line-height: 1.1;
+  }
+
+  #step-1 {
+    opacity: 100;
+    line-height: 1;
+    overflow: hidden;
+
+    & span {
+      display: inline-block;
+      transform: translateY(100px);
+      line-height: normal;
+    }
+  }
+
+  #step-2 {
+    opacity: 100;
+    h3 span {
+      display: inline-block;
+      transform: translateY(100%);
+    }
+  }
+
+  #step-3 {
+    opacity: 100;
+
+    h4 {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    h3 {
+      opacity: 100;
+      overflow: hidden;
+      transform: translateY(200%);
+    }
+  }
+</style>
+
+<script>
+  // Podemos crear una animacion en base al scroll timeline con motion
+
+  /*
+  import { animate, scroll } from "motion";
+  
+  scroll(animate("#step-2", { opacity: 1 }, { duration: 0.5 }), {
+    target: document.querySelector("#text-stop"),
+    });
+    */
+
+  // Necesitamos crear nuestro propio timeline
+  import { timeline, scroll } from "motion";
+  import { transform } from "typescript";
+
+  // Creamos la secuencia que seguira la animacion a lo largo de nuestro timeline
+  /*const sequence = [
+    ["#step-1", { opacity: 0 }, { duration: 0.1 }],
+    ["#step-2", { opacity: 1 }, { duration: 0.1 }],
+    ["#step-2", { opacity: 0 }, { duration: 0.1 }],
+    ["#step-3", { opacity: 1 }, { duration: 0.1 }],
+    ["#step-3", { opacity: 0 }, { duration: 0.1 }],
+    ["#step-4", { opacity: 1 }, { duration: 0.1 }],
+    ["#step-4", { opacity: 0 }, { duration: 0.1 }],
+    ["#step-5", { opacity: 1 }, { duration: 0.1 }],
+  ];*/
+  const sequence = [
+    // STEP # 1
+    [
+      "#step-1 h3 span:first-child", // el elemento
+      { transform: "translateY(0px)" }, // con esto el tipo de animaccion
+      { duration: 0.1 }, // con esto le indicamos la duracion en el scroll de la animacion
+    ],
+    [
+      "#step-1 h3 span:nth-child(2)",
+      { transform: "translateY(0px)" },
+      { duration: 0.1, at: 0.02 }, // at -> le indicamos para que empiece un pelin mas antes la animacion
+    ],
+    [
+      "#step-1 h3 span:nth-child(3)",
+      { transform: "translateY(0px)" },
+      { duration: 0.1, at: 0.03 },
+    ],
+    [
+      "#step-1 h3 span:first-child",
+      { transform: "translateY(-100px)" },
+      { duration: 0.1 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(2)",
+      { transform: "translateY(-100px)" },
+      { duration: 0.1, at: 0.14 },
+    ],
+    [
+      "#step-1 h3 span:nth-child(3)",
+      { transform: "translateY(-100px)" },
+      { duration: 0.1, at: 0.16 },
+    ],
+    // STEP # 2
+    [
+      "#step-2 h3:first-child span",
+      { transform: "translateY(0)" },
+      { duration: 0.1 },
+    ],
+    [
+      "#step-2 h3:nth-child(2) span",
+      { transform: "translateY(0)" },
+      { duration: 0.1, at: 0.28 },
+    ],
+    [
+      "#step-2 h3:nth-child(3) span",
+      { transform: "translateY(0)" },
+      { duration: 0.1, at: 0.3 },
+    ],
+    ["#step-2", { opacity: 0 }, { duration: 0.1 }],
+    // STEP # 3
+    ["#step-3 h4", { opacity: 1 }, { duration: 0.3 }],
+    ["#step-3 h4", { transform: "translateY(0)" }, { duration: 0.3 }],
+    ["#step-3 h3", { transform: "translateY(0)" }, { duration: 0.3, at: 0.7 }],
+    ["#step-3", { opacity: 0 }, { duration: 0.3, at: 1.4 }],
+    ["#step-4", { opacity: 1 }, { duration: 0.3 }],
+    ["#step-4", { opacity: 0 }, { duration: 0.3 }],
+    ["#step-5", { opacity: 1 }, { duration: 0.1 }],
+  ];
+
+  const onScroll = timeline(sequence);
+
+  scroll(onScroll, {
+    target: document.querySelector("#text-stop"),
+    offset: ["-100px", "end end"], // El offset seria desde donde tiene que empezar y hasta donde terminar
+  });
+</script>

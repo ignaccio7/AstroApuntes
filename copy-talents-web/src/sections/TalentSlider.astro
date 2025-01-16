@@ -1,0 +1,593 @@
+---
+import SectionTitle from "@components/SectionTitle.astro";
+import "node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+const TALENTS = [
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+  {
+    id: "cromawoman",
+    name: "Talento",
+    description: "una descripcion mas larga",
+    lema: "Polifacetico",
+    audience: "100M",
+    socials: [
+      {
+        id: "youtube",
+        url: "www.youtube.com/cromaetc",
+      },
+      {
+        id: "instagram",
+        url: "www.instagram.com/cromaetc",
+      },
+      {
+        id: "tiktok",
+        url: "www.tiktok.com/@cromaetc",
+      },
+      {
+        id: "facebook",
+        url: "www.facebook.com/cromaetc",
+      },
+      {
+        id: "x",
+        url: "www.x.com/cromaetc",
+      },
+      {
+        id: "snapchat",
+        url: "www.snapchat.com/add/cromaetc",
+      },
+      {
+        id: "linkedin",
+        url: "www.linkedin.com/in/cromaetc",
+      },
+      {
+        id: "pinterest",
+        url: "www.pinterest.com/cromaetc",
+      },
+      {
+        id: "twitch",
+        url: "www.twitch.tv/cromaetc",
+      },
+      {
+        id: "reddit",
+        url: "www.reddit.com/user/cromaetc",
+      },
+    ],
+  },
+];
+---
+
+<section>
+  <SectionTitle title="Talents Slider" imagen="talents" />
+
+  <div id="talent-slider" class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides grid grid-cols-10 bg-primary-green">
+        {
+          TALENTS.map((talent, index) => {
+            return (
+              <li class="glide__slide grid-cols-1 justify-self-center">
+                <button class="flex justify-center w-full" data-slide={index}>
+                  <img
+                    class="w-24 h-auto aspect-square"
+                    src="/public/talents/talents01.png"
+                    alt="Talentos1"
+                  />
+                </button>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+  <article class="aspect-[23/9] bg-gray-950 relative flex flex-col">
+    <header class="w-[80%] h-full flex-1 flex items-center justify-center">
+      <div class="content max-w-[800px] text-center">
+        <h3 class="text-9xl text-primary-green font-alfa font-semibold mb-8">
+          TALENTO
+        </h3>
+        <p class="text-2xl text-white">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab ipsa
+          similique ipsam solut similique ipsam solut similique ipsam solut aa
+        </p>
+      </div>
+    </header>
+    <footer class="w-[80%] text-white text-8xl font-normal text-center">
+      <span
+        class="[-webkit-text-stroke-width:1px] [-webkit-text-stroke-color:white]
+        uppercase text-transparent font-alfa"
+      >
+        Audiencia
+      </span>
+      <span class="font-alfa"> 100M </span>
+      <p class="text-sm text-nowrap">
+        { (`Polifacetico | `).repeat(100) }
+      </p>
+    </footer>
+    <figure class="absolute right-32 bottom-0">
+      <img
+        src="/public/talents/talents02.png"
+        alt="Yoshi"
+        class="w-[300px] h-auto"
+      />
+    </figure>
+  </article>
+</section>
+
+<style>
+  .glide__slide {
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .glide__slide--active {
+    @apply bg-gray-950;
+  }
+</style>
+
+<script>
+  import Glide from "@glidejs/glide";
+
+  const $slider = document.querySelector("#talent-slider");
+
+  const glide = new Glide("#talent-slider", {
+    type: "carousel",
+    focusAt: "center",
+    startAt: 6,
+    perView: 12,
+    gap: 0,
+  }).mount();
+
+  $slider?.addEventListener("click", (event) => {
+    const clickedElement = event.target as HTMLElement;
+
+    const isButton = clickedElement.tagName === "BUTTON";
+    const buttonElement = isButton
+      ? clickedElement
+      : clickedElement.closest("button");
+
+    if (buttonElement) {
+      // console.log(`go ${buttonElement.dataset.slide}`);
+      const index = buttonElement.dataset.slide;
+      glide.go(`=${index}`);
+    }
+  });
+</script>
