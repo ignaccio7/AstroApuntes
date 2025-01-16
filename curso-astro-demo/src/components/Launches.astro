@@ -1,0 +1,59 @@
+---
+// aqui poedmos ejecutar el JS
+// https://github.com/r-spacex/SpaceX-API
+// https://github.com/r-spacex/SpaceX-API/blob/master/docs/README.md
+// https://www.postman.com/api-evangelist/workspace/space/documentation/35240-8f1362db-287e-4dfe-b8eb-2fca10226219
+// const res = await fetch("https://api.spacexdata.com/v3/launches/query", {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//         query: {
+//             upcoming: true,
+//         },
+//         options: {
+//             limit: 12,
+//             sort: {
+//                 flight_number: "asc",
+//             },
+//         },
+//     }),
+// });
+
+/**
+ * COLOCANDOLO EN UN SERVICIO
+import { type APISpaceXResponse } from "../types/api.ts";
+import CardLaunch from "./CardLaunch.astro";
+
+const res = await fetch("https://api.spacexdata.com/v3/rockets");
+
+// const data = await res.json();
+// const { country } = await res.json() as APISpaceXResponse;
+const data = (await res.json()) as APISpaceXResponse[];
+
+console.log(data);
+ */
+
+import CardLaunch from "./CardLaunch.astro";
+import { getLaunches } from '../services/spacex.ts'
+
+const data = await getLaunches()
+
+---
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+        data.map((launch) => {
+            return (
+                <CardLaunch
+                    id={launch.id}
+                    active={launch.active}
+                    name={launch.rocket_name}
+                    type={launch.rocket_type}
+                    image={launch.flickr_images[0]}
+                />
+            );
+        })
+    }
+</div>

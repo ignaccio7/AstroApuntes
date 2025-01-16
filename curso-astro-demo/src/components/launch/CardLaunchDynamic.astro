@@ -1,0 +1,29 @@
+---
+
+const {launch} = Astro.props
+
+---
+
+<a
+    href={`/launch/${launch.flight_number}`}
+    class="block my-6 max-w-[300px] bg-gray-700 p-4 text-center rounded-lg hover:scale-105 hover:bg-slate-500 hover:border-gray-300 transition-all"
+>
+    <img
+        class="w-full h-auto mx-auto"
+        src={launch.links.mission_patch}
+        alt={launch.mission_name}
+    />
+    <span
+        class:list={[
+            "inline-block px-4 py-1 rounded-md text-xs font-bold",
+            {
+                "bg-green-200 text-green-900": launch.launch_success,
+                "bg-red-200 text-red-900": !launch.launch_success,
+            },
+        ]}
+    >
+        {launch.launch_success ? "Success" : "Failure"}
+    </span>
+    <h2 class="m-4 text-2xl font-bold">{launch.mission_name}</h2>
+    <!-- <p>{`${launch.flight_number} : ${launch.details}`}</p> -->
+</a>

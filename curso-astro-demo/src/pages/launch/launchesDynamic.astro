@@ -1,0 +1,28 @@
+---
+import CardLaunchDynamic from "../../components/launch/CardLaunchDynamic.astro";
+import Layout from "../../layouts/Layout.astro";
+// import { type APISpaceXResponse } from "../../types/apiLaunchesDynamic";
+
+// const response = await fetch("https://api.spacexdata.com/v3/launches/");
+// const data = await response.json();
+// const launches = data.splice(0, 10) as APISpaceXResponse[];
+// console.log(launches);
+
+// console.log(JSON.stringify(data.splice(0,10)));
+
+import { getLaunches } from "../../services/spacexDynamic";
+
+const launches = await getLaunches()
+
+---
+
+<Layout title="Launches dynamics">
+    <h1 class="text-3xl font-bold text-center">Launches for page dynamic</h1>
+    <div class="launches flex flex-wrap justify-center gap-4">
+        {
+            launches.map((launch) => {
+                return <CardLaunchDynamic launch={launch} />;
+            })
+        }
+    </div>
+</Layout>

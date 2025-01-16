@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getLaunchesById } from "../../services/spacexDynamic";
+import Layout from "../../layouts/Layout.astro";
+import { getLaunches } from "../../services/spacexDynamic";
+
+export const prerender = false
+// automaticamente al colocar esta linea de codigo ya es servidor y podriamos incluso proteger las rutas
+// por ejemplo mediante las cookies 
+// if (Astro.cookies.get('user')) {
+//     console.log('user logged');
+//     Astro.redirect('/unauthorized')    
+// } else {
+//     console.log('user not logged');    
+// }
+
+const { id } = Astro.params;
+console.log(Astro.params);
+console.log({ id });
+console.log( typeof id )
+
+
+let launch;
+if (id) {
+    launch = await getLaunchesById({ id:`${id}` });
+}
+
+// aqui nosotros deberiamos colocar las 100 rutas si en caso fueran 100
+/*
+export const getStaticPaths = async () => {
+    // tambien podriamos llamar a la api y obtener mediante JS todos los ids y posterior a eso generamos las rutas 1 opcion
+    // aqui colocamos todas las rutas que quisieramos generar
+    // return [
+    //     { params: { id: "1" } },
+    //     { params: { id: "2" } },
+    //     { params: { id: "3" } },
+    // ];
+
+    // y llamando a la API seria
+    const launches = await getLaunches()
+    return launches.map((launch)=>({
+        params: { id: launch.flight_number }   
+    }))
+
+};
+*/
+
+console.log(launch);
+---
+
+<Layout title={`Lanzamiento ${launch?.flight_number}`}>
+    <article class="p-8">
+        <img class="max-w-xs" src={launch?.links.mission_patch} alt="launch">        
+        <h2 class="text-2xl font-bold">{`${launch?.flight_number} - ${launch?.mission_name}`}</h2>
+        <p>{launch?.details}</p>        
+    </article>
+</Layout>
