@@ -1,7 +1,7 @@
 import { renderers } from './renderers.mjs';
-import { s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_CvSoi7hX.mjs';
-import { manifest } from './manifest_B5OCIbje.mjs';
-import { createExports } from '@astrojs/netlify/ssr-function.js';
+import { s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_Cu4DvlwR.mjs';
+import { manifest } from './manifest_D86gX9y0.mjs';
+import { createExports } from '@astrojs/netlify/netlify-functions.js';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
 const _page1 = () => import('./pages/api/get-info-playlist.json.astro.mjs');
@@ -21,14 +21,12 @@ const _manifest = Object.assign(manifest, {
     renderers,
     middleware: () => import('./_noop-middleware.mjs')
 });
-const _args = {
-    "middlewareSecret": "3f778917-9b13-4ae0-bf98-181ad1c3e27d"
-};
+const _args = {};
 const _exports = createExports(_manifest, _args);
-const __astrojsSsrVirtualEntry = _exports.default;
+const handler = _exports['handler'];
 const _start = 'start';
 if (_start in serverEntrypointModule) {
 	serverEntrypointModule[_start](_manifest, _args);
 }
 
-export { __astrojsSsrVirtualEntry as default, pageMap };
+export { handler, pageMap };
