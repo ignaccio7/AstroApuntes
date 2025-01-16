@@ -8,7 +8,7 @@ export default defineConfig({
   output: 'server',
   adapter: netlify({
     imagService: 'passthrough',
-    dist: new URL('./dist/', import.meta.url)
+    functionName: 'astro-ssr'    
   }),
   integrations: [tailwind(), vue(), react()],
 });

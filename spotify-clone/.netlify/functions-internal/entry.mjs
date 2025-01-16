@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
 import { s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_Cu4DvlwR.mjs';
-import { manifest } from './manifest_D86gX9y0.mjs';
+import { manifest } from './manifest_DEBCBv3a.mjs';
 import { createExports } from '@astrojs/netlify/netlify-functions.js';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
