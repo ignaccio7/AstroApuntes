@@ -1,7 +1,10 @@
 [build]
-  base = "spotify-clone"
-  command = "pnpm run build"
-  publish = "dist/"
+  command = "npm run build"
+  publish = "dist"
+
+[[edge_functions]]
+  function = "entry"
+  path = "/*"
 
 [build.environment]
   NODE_VERSION="20"
