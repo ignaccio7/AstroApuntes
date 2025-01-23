@@ -1,0 +1,34 @@
+---
+import Greeting from "@/components/Greeting.vue";
+import Layout from "../layouts/Layout.astro";
+import PlaylistItemCard from "@/components/PlaylistItemCard.astro";
+
+import { playlists } from "../lib/data";
+---
+
+<Layout title="Spotify clone">
+	<div
+		id="playlist-container"
+		class="relative transition-all duration-1000 bg-green-600"
+	>
+		<!-- PageHeader -->
+
+		<div class="relative z-10 px-6">
+			<!-- Como utilizamos un componente de vue en nuestra pagina -->
+			<!-- Greetings -->
+			<!-- <h1 class="text-4xl pt-4 text-white">Buenos dìas</h1> -->
+			<Greeting />
+
+			<div class="flex flex-wrap mt-2 gap-4">
+				{playlists.map((playlist) => <PlaylistItemCard playlist={playlist} />)}
+			</div>
+		</div>
+
+		<div
+			class="absolute inset-0  bg-gradient-to-t from-zinc-900 via-zinc-900/70"
+		>
+		</div>
+	</div>
+</Layout>
+
+<style></style>

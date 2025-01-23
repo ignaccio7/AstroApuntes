@@ -1,13 +1,12 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import vue from "@astrojs/vue";
-import react from "@astrojs/react";
-import netlify from "@astrojs/netlify/edge";  // Cambiamos a edge
 
+import tailwind from '@astrojs/tailwind';
+
+import react from '@astrojs/react';
+
+// https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: netlify({
-    imagService: 'passthrough'
-  }),
-  integrations: [tailwind(), vue(), react()],
+  integrations: [tailwind(), react()],
+  output: "server"
 });

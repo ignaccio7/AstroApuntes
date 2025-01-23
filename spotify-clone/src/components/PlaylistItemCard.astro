@@ -1,43 +1,41 @@
 ---
-import { CardPlayButton } from '@/components/CardPlayButton'
 import { type Playlist } from "@/lib/data";
+import { CardPlayButton } from "./CardPlayButton";
 
-interface Props{
-  playlist: Playlist
+interface Props {
+  playlist: Playlist;
 }
 
-const { playlist } = Astro.props
-
-const { id, cover, title, artists, color } = playlist
-const artistsString = artists.join(", ")
+const { playlist } = Astro.props;
+const { id, title, cover } = playlist;
 ---
-<!-- para crear una transicion cuando demos click con la imagen y asi sepamos a cual le dimos click
-transition:name -->
-<article class="group relative bg-zinc-500/30 hover:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300">
-  <div class="absolute right-4 bottom-10 translate-y-4 transition-all duration-500 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-10">
-    <CardPlayButton id={id} client:visible/>
-  </div>
 
-  <a 
-    href={`/playlist/${id}`}
-    class="playlist-item flex flex-col relative p-2 overflow-hidden gap-4 rounded-md w-44"
-    transition:name=`playlist ${id} box`
+<article class="card relative group basis-1/4 min-w-96 flex-1 overflow-hidden rounded-md bg-zinc-700/40
+  hover:bg-zinc-700/70 transition-all duration-300 ease-in-out z-10">
+  <div
+    class="absolute z-20 block right-4 -bottom-6 opacity-0 transition-all duration-300 ease-in-out group-hover:bottom-6 group-hover:opacity-100 pointer-events-auto"
   >
-    <picture class="aspect-square w-full h-auto">
-      <img src={cover} alt={`Cover of ${title} by ${artistsString}`}
-        class="object-cover w-full h-full rounded-md"
-        transition:name=`playlist ${id} image`
-      >
+    <CardPlayButton client:visible id={id} />
+  </div>
+  <a
+    class="h-full flex flex-row items-center gap-4"
+    href={`/playlist/${id}`}
+    transition:name={`playlist-${id}-card`}
+  >
+    <picture
+      class="w-24 h-24 overflow-hidden"
+      transition:name={`playlist-${id}-cover`}
+    >
+      <img
+        class="w-full h-full object-cover aspect-square"
+        src={cover}
+        alt={`Imagen del album ${title}`}
+      />
     </picture>
-
-    <div class="flex flex-auto flex-col truncate">
-      <h4 class="text-white text-sm font-bold" transition:name=`playlist ${id} title`>
+    <div class="content">
+      <h3 class="text-xl font-bold" transition:name={`playlist-${id}-title`}>
         {title}
-      </h4>
-      <span class="text-xs text-gray-400" transition:name=`playlist ${id} artists`>
-        {artistsString}
-      </span>
+      </h3>
     </div>
-
   </a>
 </article>

@@ -1,39 +1,35 @@
-import { Pause, Play } from "./Player"
+import { Pause } from "@/components/Player/Player"
+import { Play} from "@/components/Player/Player"
+import { playlists, songs as songsDB } from "@/lib/data"
 import { usePlayerStore } from "@/store/playerStore"
 
-export function CardPlayButton({ id, size = 'small' }) {
+export function CardPlayButton({ id }) {
+  const { isPlaying, setIsPlaying, currentMusic ,setCurrentMusic } = usePlayerStore()
 
-  const { playing, 
-    setPlaying, 
-    currentMusic, 
-    setCurrentMusic 
-  } = usePlayerStore(state => state)
-
-  const isPlayingPlaylist = playing && currentMusic?.playlist.id === id
-
-  const handleClick = () => {
+  const isPlayingPlaylist = isPlaying && currentMusic.playlist === id
+  
+  const handlePlaying = () => {
     if (isPlayingPlaylist) {
-      setPlaying(false)
+      setIsPlaying(false)
       return
     }
-
-    fetch(`/api/get-info-playlist.json?id=${id}`)
-      .then(res => res.json())
-      .then(data => {
-        const { songs, playlist } = data
-        setPlaying(true)
-        setCurrentMusic({ songs, playlist, song: songs[0] })
-        console.log(songs);
-        console.log(playlist);
-      })
+    
+    setIsPlaying(true)
+    const songs = songsDB.filter((song) => song.albumId === id)
+    setCurrentMusic({ playlist: id, songs, song: `/music/${id}/01.mp3` })
   }
 
-  const iconClassName = size === 'small' ? 'w-12 h-12' : 'w-16 h-16'
-
   return (
-    <button onClick={handleClick} className={`card-play-button rounded-full p-2 bg-green-500
-    hover:scale-110 transition hover:bg-green-400 flex items-center justify-center ${iconClassName}`}>
-      {isPlayingPlaylist ? <Pause /> : <Play />}
+    <button 
+      className='
+        block
+        pointer-events-auto text-black
+        bg-green-500 p-3 rounded-full
+        hover:bg-green-400 hover:scale-105
+        transition-all duration-300 ease-in-out        
+      '
+      onClick={handlePlaying}>
+      {isPlayingPlaylist ? <Pause /> : <Play />}      
     </button>
   )
 }

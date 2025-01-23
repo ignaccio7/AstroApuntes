@@ -1,0 +1,48 @@
+---
+import AsideMenuItem from '@/components/Aside/AsideMenuItem.astro'
+import AsideMenuCard from "@/components/Aside/AdideMenuCard.astro"
+
+import IconHome from "@/icons/Home.astro"
+import IconSearch from "@/icons/Search.astro"
+import IconLibrary from "@/icons/Library.astro"
+
+import { playlists } from "@/lib/data"
+
+interface Props {
+  className?: string
+}
+
+const { className } = Astro.props
+
+---
+
+<aside class={`${className} flex flex-col gap-3 pt-0 px-2 w-full overflow-hidden`}>
+  <ul class="flex flex-col gap-2 py-2 bg-[#121212] rounded-md">
+    <AsideMenuItem href='/'>
+      <IconHome size={28} />
+      Inicio
+    </AsideMenuItem>
+    <AsideMenuItem href='/'>
+      <IconSearch size={28} />
+      Buscar
+    </AsideMenuItem>    
+  </ul>
+
+  <div class="playlists py-2 flex-1 bg-[#121212] h-full flex flex-col gap-4 overflow-hidden">
+    <ul class="h-auto">
+      <AsideMenuItem href='/'>
+        <IconLibrary size={36} />
+        Mis Playlists
+      </AsideMenuItem>
+    </ul>
+    <ul class="flex-1 h-auto overflow-hidden overflow-y-auto">
+      {
+        playlists.map((playlist) => {
+          return <AsideMenuCard playlist={playlist} />
+        })
+      }
+    </ul>    
+  </div>
+
+</aside>
+

@@ -1,65 +1,37 @@
 ---
-export const prerender = false
+import { type Playlist } from "@/lib/data"
+import Layout from "@/layouts/Layout.astro"
+import { allPlaylists, songs } from "@/lib/data"
 
-import { CardPlayButton } from "@/components/CardPlayButton";
-import MusicTable from "@/components/MusicTable.astro";
-import Layout from "@/layouts/Layout.astro";
+const { id } = Astro.params
 
-import { allPlaylists, songs } from "@/lib/data";
+const playlist:Playlist | undefined = allPlaylists.find((playlist) => playlist.id === id)
 
-const { id } = Astro.params;
+if (!playlist) {
+  return Astro.redirect('/')  
+}
 
-const playlist = allPlaylists.find((playlist) => playlist.id === id);
-const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
-const artistsString = playlist?.artists.join(', ')
+const { title, color, cover, artists } = playlist
+const artistsString = artists.join(', ')
+
+const songsPlaylist = songs.filter((song) => song.albumId === playlist.albumId)
 
 ---
 
-<Layout title="Spotify clone">
-  <!-- para que respete la transicion entonces transition:name con el mismo de la pagina anterior -->
-  <div
-    id="playlist-container"
-    class="relative bg-green-900 flex flex-col h-full overflow-x-hidden p-4"
-    transition:name=`playlist ${id} box`
-  >
-    <!-- PageHeader -->
-    <header class="flex flex-row gap-4">
-      <picture class="aspect-square block w-52 h-52">
-        <img src={playlist?.cover} alt={`Cover of ${playlist?.title}`}
-          class="object-cover w-full h-full rounded-md"
-          transition:name=`playlist ${id} image`
-        />
-      </picture> 
-      <div class="flex flex-auto flex-col truncate justify-center">
-        <span class="text-white text-xs flex-1 flex items-end">
-          Playlist
+<Layout>
+  <article class="mt-16 mx-4 flex flex-row gap-2 transition-all duration-300 ease-in-out" transition:name={`playlist-${id}-card`}>
+    <picture class="block w-60 h-60 overflow-hidden" transition:name={`playlist-${id}-cover`}>
+      <img class="w-full h-full object-cover aspect-square" src={cover} alt={`Imagen del album ${title}`}>
+    </picture>
+    <div class="content flex flex-col justify-center">
+      <h3 class="flex-1 flex items-end text-zinc-400">Playlist</h3>
+      <h1 class="text-5xl font-bold" transition:name={`playlist-${id}-title`}>{title}</h1>
+      <p class="flex-1 flex flex-col justify-end text-md text-zinc-400">
+        {artistsString}
+        <span>
+          <strong class="w-fit">{songsPlaylist.length} canciones </strong>, 3h aproximadamente
         </span>
-        <h4 class="text-white text-sm font-bold" transition:name=`playlist ${id} title`>
-          <span class="text-5xl text-white">{playlist?.title}</span>
-        </h4>
-        <div class="text-md text-gray-300 flex-1 flex flex-col justify-end gap-1">
-          <span transition:name=`playlist ${id} artists`>{artistsString}</span>
-          <p class="text-white">
-            <span class="font-bold">{playListSongs.length} canciones</span>, 3h aproximadamente
-          </p>
-        </div>
-      </div> 
-    </header>
-    
-    <section class="pt-6">
-      <CardPlayButton id={id} size="large" client:load/>
-    </section>
-
-    <!-- TableSongs -->
-    <section class="pt-8">
-      <MusicTable songs={playListSongs} />
-    </section>
-
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/70 -z-10"
-    >
+      </p>
     </div>
-  </div>
+  </article>  
 </Layout>
-
-<style></style>

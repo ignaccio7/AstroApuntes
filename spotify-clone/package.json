@@ -4,27 +4,20 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/netlify": "3.0.4",
-    "@astrojs/react": "^3.6.3",
-    "@astrojs/tailwind": "^5.1.4",
-    "@astrojs/vue": "^4.5.3",
-    "@radix-ui/react-slider": "^1.2.2",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "astro": "^4.16.18",
-    "clsx": "^2.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@astrojs/react": "^4.1.6",
+    "@astrojs/tailwind": "^5.1.5",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.1.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3",
-    "vue": "^3.5.13",
-    "zustand": "4.5.2"
-  }
+    "zustand": "5.0.3"
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
 }

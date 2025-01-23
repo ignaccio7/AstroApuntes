@@ -63,7 +63,7 @@ export const playlists: Playlist[] = [
     cover:
       "https://f4.bcbits.com/img/a0363730459_16.jpg",
     artists: ["WFS", "Nadav Cohen"],
-  },
+  }
 ];
 
 export const morePlaylists = playlists.map((item) => ({

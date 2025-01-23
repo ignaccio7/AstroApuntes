@@ -1,0 +1,14 @@
+---
+import { PlayerControls } from '@/components/Player/Player'
+interface Props {
+  className?: string
+}
+
+const { className } = Astro.props
+
+---
+
+<footer class={`${className} h-32 bg-black`}>
+  <PlayerControls client:load transition:name="media-player" transition:persist />
+</footer>
+
