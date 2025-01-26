@@ -1,3 +1,4 @@
+import "./sliderVolume.css"
 import { usePlayerStore } from "@/store/playerStore"
 import { useEffect, useRef, useState } from "react"
 
@@ -17,46 +18,129 @@ export const Volume = () => (
   <svg fill="currentColor" role="presentation" height="24" width="24" aria-hidden="true" aria-label="Volumen alto" id="volume-icon" viewBox="0 0 16 16"><path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"></path><path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"></path></svg>
 )
 
-export function PlayerControls() {
-  const { isPlaying, setIsPlaying, currentMusic } = usePlayerStore(state => state)
-  const song = useRef()
 
-  useEffect(() => {
-    song.current.src = "/music/1/01.mp3"
-    song.current.volume = 0.2
-  }, [])
+function CurrentSong({ title, artists, image }) {
+  return (
+    <article className="flex flex-row gap-2 items-center w-64">
+      <picture className="w-16 h-16 rounded-md bg-zinc-800 overflow-hidden relative">
+        {image && <img className="w-full h-full aspect-square object-cover" src={image} />}
+      </picture>
+      <div className="content flex flex-col">
+        <h4 className="text-xl font-normal text-slate-100">{title}</h4>
+        <span className="text-sm text-slate-300">{artists?.join(', ')}</span>
+      </div>
+    </article>
+  )
+}
 
-  const handlePlay = () => {      
-    const playing = !isPlaying
-    setIsPlaying(playing)    
-    if (!playing) {
-      song.current.pause()
-    }else {
-      song.current.play()
+function SongControl({ audioRef }) {
+  return (
+    <>
+      <input
+        type="range"
+        // onChange={handleVolume}
+        defaultValue={50}
+        min={0}
+        max={100} 
+        className="slider w-full h-2 rounded-lg appearance-none cursor-pointer" />
+    </>
+  )
+}
+
+function VolumeControl({ currentMusic, audioRef }) {
+  const volume = usePlayerStore(state => state.volume)
+  const setVolume = usePlayerStore(state => state.setVolume)
+  const previousVolume = useRef(volume)
+
+  const handleVolume = (e) => {
+    setVolume(e.target.value)
+    previousVolume.current = e.target.value
+
+    if (!currentMusic.song) return
+
+    audioRef.current.volume = e.target.value / 100
+  }
+
+  const handleSilence = () => {
+    if (volume === 0) {
+      setVolume(previousVolume.current)
+      audioRef.current.volume = previousVolume.current / 100
+    } else {
+      setVolume(0)
+      audioRef.current.volume = 0
     }
   }
 
+  return (
+    <>
+      <button onClick={handleSilence}>
+        {volume <= 0 ? <VolumeSilence /> : <Volume />}
+      </button>
+      {/* <VolumeControl /> */}
+      <input
+        type="range"
+        onChange={handleVolume}
+        defaultValue={volume}
+        min={0}
+        max={100}
+        className="slider w-full h-2 rounded-lg appearance-none cursor-pointer" />
+    </>
+  )
+}
+
+
+export function PlayerControls() {
+  const { isPlaying, setIsPlaying, currentMusic } = usePlayerStore(state => state)
+  const audioRef = useRef()
+  const volume = usePlayerStore(state => state.volume)
+
+  const handlePlay = () => {
+    if (!currentMusic.song) return
+    const playing = !isPlaying
+    setIsPlaying(playing)
+  }
+
   useEffect(() => {
-    
+    if (!currentMusic.song) return
+    if (!isPlaying) return
+    console.log('esta entrando aquaai');
+
+    audioRef.current.src = `/music/${currentMusic.playlist.id}/0${currentMusic.song.id}.mp3`
+    audioRef.current.volume = volume / 100
+    audioRef.current.play()
+    console.log(volume);
+
+  }, [currentMusic])
+
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play()
+    } else {
+      audioRef.current.pause()
+    }
   }, [isPlaying])
 
   return (
-    <div className="w-full h-full flex flex-row justify-between items-start py-2 px-4">
-      <div className="currentSong">
-        currentSong
+    <div className="w-full h-full flex flex-row justify-between items-start py-4 px-4 relative">
+      <div className="currentSong relative">
+        <CurrentSong {...currentMusic.song} />
       </div>
-      <div className="player">
-        <button 
+      <div className="player w-96 h-full flex flex-col gap-2 justify-center items-center">
+        <button
           onClick={handlePlay}
           className="bg-slate-100 p-2 text-black rounded-full"
         >
-          { isPlaying ? <Pause /> : <Play /> }
+          {isPlaying ? <Pause /> : <Play />}
         </button>
+        <div className="songControl flex-1 w-full">
+          <SongControl audioRef={audioRef} />
+        </div>
       </div>
-      <div className="volume">
-        Volumen
+      <div className="flex gap-2 h-full items-center">
+        <VolumeControl currentMusic={currentMusic} audioRef={audioRef} />
       </div>
-      <audio ref={song}></audio>
+      <audio ref={audioRef}></audio>
     </div>
   )
 }

@@ -302,7 +302,7 @@ export const songs: Song[] = [
   },
   {
     "id": 4,
-    "albumId": 5,
+    "albumId": 6,
     "title": "Urban Echoes",
     "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
     "artists": ["LoFi Dreamer"],
@@ -311,7 +311,7 @@ export const songs: Song[] = [
   },
   {
     "id": 5,
-    "albumId": 5,
+    "albumId": 6,
     "title": "Night's End",
     "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
     "artists": ["LoFi Dreamer"],
