@@ -2,7 +2,7 @@ import { Pause } from "@/components/Player/Player"
 import { Play } from "@/components/Player/Player"
 import { usePlayerStore } from "@/store/playerStore"
 
-export function CardPlayButton({ id }) {
+export function CardPlayButton({ id, size = 24, className = '' }) {
   const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } = usePlayerStore()
 
   const isPlaylistPlay = currentMusic?.playlist?.id == id
@@ -17,7 +17,7 @@ export function CardPlayButton({ id }) {
 
     console.log('Busco otro');    
     // fetch
-    fetch(`http://localhost:4321/api/get-info-playlist?id=${id}`)
+    fetch(`/api/get-info-playlist?id=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -30,15 +30,16 @@ export function CardPlayButton({ id }) {
 
   return (
     <button
-      className='
+      className={`
         block
         pointer-events-auto text-black
         bg-green-500 p-3 rounded-full
         hover:bg-green-400 hover:scale-105
         transition-all duration-300 ease-in-out        
-      '
+        ${className}
+      `}
       onClick={handlePlaying}>
-      {isPlayingPlaylist ? <Pause /> : <Play />}
+      {isPlayingPlaylist ? <Pause size={size} /> : <Play size={size} />}
     </button>
   )
 }

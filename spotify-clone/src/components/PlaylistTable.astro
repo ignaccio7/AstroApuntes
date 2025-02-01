@@ -1,0 +1,42 @@
+---
+import { type Song } from "@/lib/data"
+const { id } = Astro.params
+const res = await fetch(`http://localhost:4321/api/get-info-playlist?id=${id}`)
+if (!res.ok) {
+  return Astro.redirect('/')
+}
+const data = await res.json()
+const songs: Song[] = data.songs
+
+---
+
+<table class="relative z-10 table-auto w-full text-lg">
+  <thead>
+    <tr class="text-zinc-500 text-left border-b border-zinc-600">
+      <th class="py-2 px-4">#</th>
+      <th>Title</th>
+      <th>Album</th>
+      <th><svg width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path><path fill="currentColor" d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path></svg></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="h-3"></tr>
+    {
+      songs.map((song, index) => {
+        return (
+          <tr class="text-zinc-400 hover:bg-zinc-600/40 transition-colors duration-300 ease-in-out overflow-hidden">
+            <td class="py-2 px-4 w-[3ch] rounded-t-sm rounded-b-sm">{index + 1}</td>
+            <td class="text-slate-100 flex gap-2 items-center py-2">
+              <img src={song.image} alt={`${song.title} cover`} class="w-14 h-14 rounded-sm" />
+              <p class="leading-none flex flex-col gap-1">{song.title} <br/>
+              <span class="text-zinc-400 text-sm">{song.artists.join(', ')}</span>
+              </p>
+            </td>
+            <td>{song.album}</td>
+            <td>{song.duration}</td>
+          </tr>
+        )
+      })
+    }
+  </tbody>
+</table>
