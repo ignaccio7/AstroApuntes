@@ -2,7 +2,7 @@
 import ClientRouter from "astro/components/ClientRouter.astro";
 
 import Aside from "@/sections/Aside.astro";
-import Player from "@/sections/Player.astro" 
+import Player from "@/sections/Player.astro";
 ---
 
 <!doctype html>
@@ -17,8 +17,10 @@ import Player from "@/sections/Player.astro"
 	</head>
 	<body>
 		<div class="app pt-2">
-			<Aside className="[grid-area:aside]"/>
-			<main class="[grid-area:main] pr-2 overflow-hidden relative bg-[#121212] mr-2">
+			<Aside className="[grid-area:aside]" />
+			<main
+				class="[grid-area:main] pr-2 overflow-hidden relative bg-[#121212] mr-2 overflow-x-hidden overflow-y-auto w-full h-full pb-5"
+			>
 				<slot />
 			</main>
 			<Player className="[grid-area:footer]" />
@@ -34,11 +36,10 @@ import Player from "@/sections/Player.astro"
 		display: grid;
 		grid-template-areas:
 			"aside main"
-			"footer footer"
-		;
+			"footer footer";
 		grid-template-columns: 350px 1fr;
 		grid-template-rows: 1fr auto;
-	}	
+	}
 </style>
 
 <style is:global>
@@ -61,36 +62,36 @@ import Player from "@/sections/Player.astro"
 	}
 
 	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Medium.woff2') format('woff2');
+		font-family: "CircularStd";
+		src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
 		font-weight: 500;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+		font-family: "CircularStd";
+		src: url("/fonts/CircularStd-Book.woff2") format("woff2");
 		font-weight: 400;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+		font-family: "CircularStd";
+		src: url("/fonts/CircularStd-Light.woff2") format("woff2");
 		font-weight: 300;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+		font-family: "CircularStd";
+		src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
 		font-weight: 700;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+		font-family: "CircularStd";
+		src: url("/fonts/CircularStd-Black.woff2") format("woff2");
 		font-weight: 900;
 		font-style: normal;
 		font-display: swap;
@@ -98,6 +99,12 @@ import Player from "@/sections/Player.astro"
 	html {
 		font-family: "CircularStd", system-ui, sans-serif;
 		background: #000;
+	}
+
+	/* Works on Firefox */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: rgb(49, 49, 49) transparent;
 	}
 
 </style>
