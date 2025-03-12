@@ -1,0 +1,42 @@
+---
+import IconLinux from "../Icons/IconLinux.astro";
+import IconMac from "../Icons/IconMac.astro";
+import IconWindows from "../Icons/IconWindows.astro";
+---
+
+<section class="plans mt-14">
+  <div class="container">
+    <h2 class="text-center text-3xl mb-10 font-semibold text-button">
+      Beneficios de Formix
+    </h2>    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 grid-rows-[500px] overflow-hidden">
+      <div class="platforms">
+        <h3 class="text-2xl text-center font-semibold">Disponible en todas las plataformas</h3>
+        <p class="text-md font-light text-center">
+          Descubre nuestra aplicación en tus distintos dispositivos
+        </p>
+        <div class="flex items-center justify-center">
+          <img src="/images/Plans1.png" alt="">
+          <div class="flex flex-col gap-4 h-full justify-around">
+            <div class="platform-item">
+              <IconWindows size="72" />
+            </div>
+            <div class="platform-item">
+              <IconMac size="72" />
+            </div>
+            <div class="platform-item">
+              <IconLinux size="72" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="plans">
+        <h3 class="text-2xl text-center font-semibold">Nuestros Planes de pago</h3>
+        <p class="text-md font-light text-center">
+          Actualmente, todo nuestro producto es <span class="text-tertiary font-black">¡GRATIS!</span>
+        </p>
+        <img class="mt-2 block mx-auto w-auto h-full max-h-96 object-cover" src="/images/Plans2.png" alt="Planes">
+      </div>
+    </div>
+  </div>
+</section>

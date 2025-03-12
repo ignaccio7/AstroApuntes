@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+  className?: string;
+  size?: "sm" | "md" | "lg";
+}
+
+const { text, className = "", size = "sm" } = Astro.props;
+---
+
+<a
+  class:list={[
+    `text-white font-semibold bg-button rounded-md ${className} `,
+    size == "sm" ? "text-sm px-3 py-1" : "",
+    size == "md" ? "text-md px-4 py-2" : "",
+    size == "lg" ? "text-lg px-6 py-3" : "",
+  ]}
+  href="/about"
+>
+  {text}
+</a>

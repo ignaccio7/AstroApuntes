@@ -1,0 +1,40 @@
+---
+import About from '../components/About.astro';
+import Bento from '../components/Bento.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import NavBar from '../components/NavBar.astro';
+import Plans from '../components/Plans.astro';
+import Layout from '../layouts/Layout.astro';
+
+
+---
+
+<Layout title='copy-formix-web' description='Copia para el portapapeles web'>
+	<header class="fixed top-0 w-full h-auto z-50">
+		<NavBar />
+	</header>
+	<Hero />
+	<Bento />
+	<Plans />
+	<About />
+	<Footer />
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h2>abx</h2>
+</Layout>
+
+<style>
+	header {
+		animation: enhance_header linear both;
+		animation-timeline: scroll(root block);
+		animation-range: 0 300px;
+	}
+
+	@keyframes enhance_header {
+		to {
+			backdrop-filter: blur(20px);
+		}
+	}
+
+</style>

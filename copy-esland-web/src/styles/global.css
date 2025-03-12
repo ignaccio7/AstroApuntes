@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "tailwindcss-animated";
+
+@theme {
+  --font-tomaso: "Tomaso", sans-serif; 
+  --font-jura: "Jura", sans-serif;
+  --font-onest: "Onest", sans-serif;
+}

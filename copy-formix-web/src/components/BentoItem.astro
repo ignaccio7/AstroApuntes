@@ -1,0 +1,28 @@
+---
+interface Props {
+  backgroundUrl: string
+  imageUrl: string
+  className?: string
+}
+
+const { imageUrl, backgroundUrl, className = "" } = Astro.props;
+---
+
+<div
+  class={`bento-item relative flex items-end justify-end
+    bg-linear-to-b from-30% to-black/90 ${className} overflow-hidden`}
+>
+  <img
+    class="absolute inset-0 w-full h-auto object-cover -z-10"
+    src={backgroundUrl}
+    alt="Compartir"
+  />
+  <img
+    class="absolute bottom-0 right-0 w-80 -z-10"
+    src={imageUrl}
+    alt="animacion"
+  />
+  <div class="content px-4 pb-4">
+    <slot />
+  </div>
+</div>

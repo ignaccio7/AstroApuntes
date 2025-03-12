@@ -1,0 +1,101 @@
+---
+import BentoItem from "./BentoItem.astro";
+import ArrowRight from "../Icons/ArrowRight.astro";
+---
+
+<section class="bento-section container mt-14">
+  <h2 class="text-center text-3xl font-semibold text-tertiary">
+    Aprende mas acerca de Formix
+  </h2>
+  <div class="bento mt-10">
+    <BentoItem
+      backgroundUrl="/images/compartir.png"
+      imageUrl="/images/svg/animacion3.svg"
+      className="col-span-7 md:col-span-4"
+    >
+      <h3 class="text-[1.2rem] text-slate-200 font-bold">
+        Eleva tu experiencia de formularios con Formix
+      </h3>
+      <p class="text-[1rem] text-slate-300 font-light">
+        Diseña formularios impactantes y funcionales para tu audiencia
+        componentes
+      </p>
+      <a
+        href="/"
+        class="w-full text-blue-400 text-[.95rem] font-normal flex gap-2 items-center justify-end"
+      >
+        Explorar
+        <ArrowRight />
+      </a>
+    </BentoItem>
+    <BentoItem
+      backgroundUrl="/images/componentes.png"
+      imageUrl="/images/svg/animacion5.svg"
+      className="col-span-7 md:col-span-3"
+    >
+      <h3 class="text-[1.2rem] text-slate-200 font-bold">
+        Eleva tu experiencia de formularios con Formix
+      </h3>
+      <p class="text-[1rem] text-slate-300 font-light">
+        Diseña formularios impactantes y funcionales para tu audiencia
+        componentes
+      </p>
+      <a
+        href="/"
+        class="w-full text-blue-400 text-[.95rem] font-normal flex gap-2 items-center justify-end"
+      >
+        Explorar
+        <ArrowRight />
+      </a>
+    </BentoItem>
+    <BentoItem
+      backgroundUrl="/images/respuestas.png"
+      imageUrl="/images/svg/animacion5.svg"
+      className="col-span-7 md:col-span-3"
+    >
+      <h3 class="text-[1.2rem] text-slate-200 font-bold">
+        Eleva tu experiencia de formularios con Formix
+      </h3>
+      <p class="text-[1rem] text-slate-300 font-light">
+        Diseña formularios impactantes y funcionales para tu audiencia
+        componentes
+      </p>
+      <a
+        href="/"
+        class="w-full text-blue-400 text-[.95rem] font-normal flex gap-2 items-center justify-end"
+      >
+        Explorar
+        <ArrowRight />
+      </a>
+    </BentoItem>
+    <BentoItem
+      backgroundUrl="/images/temas.png"
+      imageUrl="/images/svg/animacion4.svg"
+      className="col-span-7 md:col-span-4"
+    >
+      <h3 class="text-[1.2rem] text-slate-200 font-bold">
+        Eleva tu experiencia de formularios con Formix
+      </h3>
+      <p class="text-[1rem] text-slate-300 font-light">
+        Diseña formularios impactantes y funcionales para tu audiencia
+        componentes
+      </p>
+      <a
+        href="/"
+        class="w-full text-blue-400 text-[.95rem] font-normal flex gap-2 items-center justify-end"
+      >
+        Explorar
+        <ArrowRight />
+      </a>
+    </BentoItem>
+  </div>
+</section>
+
+<style>
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 300px;
+    gap: 10px;
+  }
+</style>

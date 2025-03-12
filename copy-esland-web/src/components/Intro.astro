@@ -1,0 +1,49 @@
+---
+import { getI18n } from "../i18n/"
+const { currentLocale } = Astro
+const i18n = getI18n({ currentLocale })
+---
+
+<section class="intro">
+  <article class="mb-6 pt-4 flex flex-col gap-4 max-w-2xl mx-auto px-8">
+    <!-- <h2 class="text-3xl text-center font-bold mb-2 text-white">
+      Bienvenidos/as <br />
+      a los Premios ESLAND
+    </h2> -->
+    <h2 class="text-3xl text-center font-bold mb-2 text-white">
+      {i18n.INTRO_TITLE}
+      <br />
+      {i18n.INTRO_TITLE_AFTER_BR}
+    </h2>
+
+    <!-- <p class="text-md text-white/70 text-pretty font-[200]">
+      El cine tiene los Oscars, la música tiene los Grammy y <strong
+        class="text-white font-[700]"
+      >
+        el streaming tiene los ESLAND.</strong
+      > Los premios que celebran la creatividad y el talento de los mejores creadores
+      de contenido de <strong class="text-white font-[700]">
+        la comunidad hispanohablante
+      </strong>
+    </p> -->
+    <!-- <p class="text-md text-white/70 text-pretty font-[200]">
+      España, Latinoamérica y Andorra unidas por creadores, creadoras y sus
+      comunidades, para recordar y revivir <strong
+        class="text-white font-[700]"
+      >
+        algunos de los mejores momentos del año.</strong
+      >
+    </p>
+
+    <p class="text-md text-white/70 text-pretty font-[200]">
+      Tras dos galas celebradas, una en el Palau de la Música Catalana de
+      Barcelona, y otra en el Auditorio Nacional de la Ciudad de México, solo
+      queda esperar a <strong class="text-white font-[700]">
+        la tercera edición en Andorra.</strong
+      >
+    </p> -->
+    <p class="text-md text-white/70 text-pretty font-[200]" set:html={i18n.INTRO_DESCRIPTION}></p>
+    <p class="text-md text-white/70 text-pretty font-[200]" set:html={i18n.INTRO_DESCRIPTION_2}></p>
+    <p class="text-md text-white/70 text-pretty font-[200]" set:html={i18n.INTRO_DESCRIPTION_3}></p>    
+  </article>
+</section>

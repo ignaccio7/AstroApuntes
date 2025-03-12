@@ -1,0 +1,17 @@
+---
+
+interface Props {
+  image: string
+}
+
+const { image } = Astro.props as Props
+
+---
+
+<section 
+  class="hero w-full h-screen md:h-[90dvh] bg-cover bg-no-repeat bg-center grid place-content-center" 
+  style={`background-image: url('${image}'); clip-path: polygon(50% 0%, 100% 0, 100% 80%, 50% 100%, 50% 100%, 0% 80%, 0 0);`}>
+
+  <slot />
+
+</section>

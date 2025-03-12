@@ -1,0 +1,86 @@
+---
+import Logo from "../Icons/Logo.astro";
+import Menu from "../Icons/Menu.astro";
+import Close from "../Icons/Close.astro";
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header
+  class="text-white flex gap-2 justify-between py-2 px-4
+fixed top-0 left-0 right-0 z-50"
+>
+  <a href="/" class="group">
+    <Logo
+      class="w-8 h-auto blur-xs absolute opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"
+    />
+    <Logo class="w-8 h-auto" />
+  </a>
+  <button id="open-menu" class="sm:hidden">
+    <Menu class="w-8 h-auto" />
+  </button>
+  <nav 
+    id="menu"
+    class="menu text-sm fixed w-full h-screen inset-0 grid place-content-center 
+    bg-[#151a36e6] gap-6 text-center z-50 text-white transition-all 
+    duration-300 ease-in-out
+    sm:static sm:flex sm:h-auto sm:items-center sm:justify-end sm:bg-transparent sm:gap-3">
+    <button id="close-menu" class="sm:hidden">
+      <Close class="w-8 h-auto absolute top-3 right-2" />
+    </button>
+    <HeaderLink href="/vota">VOTA</HeaderLink>
+    <HeaderLink href="/info">INFORMACION</HeaderLink>
+    <HeaderLink href="/archivo">ARCHIVO</HeaderLink>
+    <button class="border border-white rounded-full px-2 py-1 text-xs">
+      CRITERIOS DE INFORMACION
+    </button>
+  </nav>
+</header>
+
+<style>
+  .menu {
+    transform: translateY(-100%);
+  }
+  .open-menu {
+    transform: translateY(0%);
+  }
+
+  @media (width >= 640px) {
+    .menu {
+      transform: translateY(0%);
+    }
+  }
+
+  header {    
+    animation: header-animation linear both;    
+    animation-timeline: scroll(root block);
+    animation-range: 0 200px;
+  }
+
+  @keyframes header-animation {
+    to {
+      background-color: #00000030;
+      backdrop-filter: blur(20px);
+    }
+
+  }
+
+
+</style>
+
+<script type="module">
+  const $ = (selector) => document.querySelector(selector)
+  const openMenu = $("#open-menu"),
+    closeMenu = $("#close-menu"),
+    menu = $("#menu")
+
+  openMenu?.addEventListener("click", () => {
+    console.log("open menu")
+    menu.classList.add("open-menu")
+  })
+  
+  closeMenu?.addEventListener("click", () => {
+    console.log("close menu")
+    menu.classList.remove("open-menu")
+  })
+  
+</script>

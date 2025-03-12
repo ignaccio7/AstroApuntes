@@ -1,0 +1,28 @@
+---
+interface Props {
+  class?: string;
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle, class: className } = Astro.props;
+---
+
+<article
+  class={`relative rounded-sm
+  flex flex-col justify-end p-4 group ${className}`}
+>
+  <div
+    class="absolute inset-0 z-10 h-full w-full
+    bg-gradient-to-b from-transparent from-40% via-[#151836]/50 to-[#151836]/80
+    duration-1000 ease-in-out group-hover:scale-105"
+  >
+  </div>
+  <slot name="image" />
+  <div class="content relative z-20 flex flex-col gap-2">
+    <h2 class="text-white font-bold text-xl">
+      {title}
+    </h2>
+    <slot />
+  </div>
+</article>

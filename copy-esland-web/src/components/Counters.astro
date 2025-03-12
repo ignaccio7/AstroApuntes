@@ -1,0 +1,35 @@
+---
+import { Counter } from "./Counter";
+
+
+---
+
+<section class="counters my-32 max-w-6xl mx-auto px-4">
+  <h1 class="text-5xl text-center text-white font-tomaso mb-10">Los ESLAND en números</h1>
+  <div class="counters-container text-white grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 justify-items-center">
+    <p class="text-xs uppercase text-center text-gray-300">
+      <span class="counter block text-5xl font-bold text-white">
+        <Counter initial={0} final={69.9} decimals={1} duration={1000} client:visible />M
+      </span>
+      de visualizaciones
+    </p>
+    <p class="text-xs uppercase text-center text-gray-300">
+      <span class="counter block text-5xl font-bold text-white">
+        <Counter initial={0} final={227} decimals={0} duration={1000} client:visible />
+      </span>
+      Noticias de prensa
+    </p>
+    <p class="text-xs uppercase text-center text-gray-300">
+      <span class="counter block text-5xl font-bold text-white">
+        <Counter initial={0} final={3.2} duration={1000} decimals={2} client:visible />€
+      </span>
+      En premios ganados
+    </p>
+  </div>
+</section>
+
+<style>
+  .counter {
+    text-shadow: 0px 0px 4px #fff;
+  }
+</style>

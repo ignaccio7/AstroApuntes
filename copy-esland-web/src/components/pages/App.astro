@@ -1,0 +1,29 @@
+---
+import Bento from '../../components/Bento.astro';
+import Intro from '../../components/Intro.astro';
+import PreFooter from '../../components/PreFooter.astro';
+import Video from '../../components/Video.astro';
+import Layout from '../../layouts/Layout.astro';
+
+import { getI18n } from "../../i18n/"
+const { currentLocale } = Astro
+const i18n = getI18n({ currentLocale })
+---
+
+<!-- <Layout 
+	title="Premios Esland COPY 2024 - Astro"
+	description="Lugar donde se conmemoran a los mejores streams de la temporada de Premios Esland COPY 2024"
+> -->
+<Layout 
+	title={i18n.SEO_TITLE}
+	description={i18n.SEO_DESCRIPTION}
+>
+
+<Video />
+
+	<main class="pb-12">		
+		<Intro />
+		<Bento />
+		<PreFooter />
+	</main>
+</Layout>

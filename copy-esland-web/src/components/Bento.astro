@@ -1,0 +1,80 @@
+---
+import BentoItem from "./BentoItem.astro";
+---
+
+<section
+  class="bento w-full max-w-5xl mx-auto px-8 mt-24 grid auto-rows-[300px] grid-cols-10 gap-4"
+>
+  <BentoItem
+    class="col-span-10 sm:col-span-6 rounded-sm"
+    title="ANDORRA: EL CÉNIT DE LOS PREMIOS ESLAND"
+  >
+    <div
+      class="background transition-scale absolute inset-0
+      -z-10 h-full w-full bg-blue-950
+      bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-105"
+      data-src="/bento/mountain.webp"
+      style="background-image: url('/bento/mountain.webp');"
+      slot="image"
+    >
+    </div>
+    <p class="text-sm text-slate-300 font-[100] text-pretty">
+      Una nueva edición <strong>cargada de novedades</strong> y contenido, que empezará
+      varias semanas antes de la ansiada gala. <strong
+        >Directos especiales, colaboraciones, conciertos y mucho más
+      </strong>en lo que será una auténtica fiesta dedicada a la creación de
+      contenido.
+    </p>
+  </BentoItem>
+  <BentoItem
+    class="col-span-10 sm:col-span-4"
+    title="LA ALFOMBRA BLANCA Y LA GALA"
+  >
+    <div
+      class={`background absolute inset-0 transition-scale duration-1000 ease-in-out group-hover:scale-105
+      -z-10 h-full w-full bg-blue-900 bg-cover bg-center bg-no-repeat opacity-90
+      bg-blend-luminosity`}
+      style="background-image: url('/bento/grefg.webp');"
+      slot="image"
+    >
+    </div>
+    <p class="text-sm text-slate-300 font-[100] text-pretty">
+      Y una gala llena de emoción, con la entrega de premios, conciertos de
+      artistas internacionales, y una gran cantidad de contenido pensado
+      exclusivamente para la comunidad de streaming hispanohablante.
+    </p>
+  </BentoItem>
+  <BentoItem
+    class="col-span-10 sm:col-span-4 rounded-sm"
+    title="DISFRUTA DEL REDDIT DE LA COMUNIDAD"
+  >
+    <div
+      class={`background absolute inset-0 transition-scale duration-1000 ease-in-out group-hover:scale-105
+   -z-10 h-full w-full bg-blue-900 bg-cover bg-center bg-no-repeat opacity-90
+   bg-blend-luminosity`}
+      style="background-image: url('/bento/pistas.webp');"
+      slot="image"
+    >
+    </div>
+    <p class="text-sm text-slate-300 font-[100] text-pretty">
+      Una gala de premios llena de <strong>contenido de primer nivel</strong>,
+      en la que descubrirán los ganadores de esta tercera edición de los Premios
+      ESLAND.
+    </p>
+  </BentoItem>
+  <BentoItem class="col-span-10 sm:col-span-6 rounded-sm" title="LA GALA">
+    <div
+      class={`absolute inset-0 transition-scale duration-1000 ease-in-out group-hover:scale-105
+      -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90
+      bg-blend-luminosity `}
+      style="background-image: url('/bento/laptop.webp');"
+      slot="image"
+    />
+    <p class="text-sm text-slate-300 font-[100] text-pretty">
+      Este año, el momento de la alfombra azul será sustituido y mejorado,
+      gracias a los increíbles paisajes andorranos, por una <strong>
+        alfombra blanca en plena nieve</strong
+      >, situada en las <strong>pistas de esquí de Andorra</strong>
+    </p>
+  </BentoItem>
+</section>

@@ -1,0 +1,64 @@
+---
+import Logo from "../Icons/Logo.astro";
+---
+
+<div class="w-full h-auto relative overflow-hidden">
+  <div class="video relative w-full h-screen md:h-[90dvh]">
+    <video
+      src="/video.mp4"
+      autoplay
+      loop
+      muted
+      class="w-full h-full object-cover aspect-video animate-fade animate-once animate-duration-[1000ms]"
+      style="
+clip-path: polygon(50% 0%, 100% 0, 100% 80%, 50% 100%, 50% 100%, 0% 80%, 0 0);
+"
+    >
+    </video>
+    <section
+      class="title absolute z-10 inset-0 grid place-content-center"
+    >
+      <h1
+        class="font-jura font-extralight text-5xl gap-5 md:text-7xl lg:text-9xl flex md:gap-12 lg:gap-14 items-center justify-center text-white"
+      >
+        <span>E</span>
+        <span>S</span>
+        <span>L</span>
+        <svg
+          class="h-9 w-auto md:h-[3.75rem] lg:h-24 scale-150"
+          aria-label="A"
+          data-astro-cid-7qzxku2k=""
+          viewBox="0 0 160 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M0 200L75 162L32 168L75 0L0 200Z" fill="currentColor"></path>
+          <path d="M160 200L85 162L128 168L85 0L160 200Z" fill="currentColor"
+          ></path>
+          <path d="M71 119L80 64L90 119L80 139L71 119Z" fill="currentColor"
+          ></path>
+        </svg>
+        <span>N</span>
+        <span>D</span>
+      </h1>
+      <p
+        class="text-xl font-[100] md:text-2xl md:font-light text-center mt-4 mx-2 text-white"
+      >
+        Premios a la Comunidad Hispanohablante de Streaming
+      </p>
+    </section>
+  </div>
+  <div class="absolute -z-40 -bottom-48 [filter:blur(64px)]">
+    <video
+      src="/video.mp4"
+      autoplay
+      loop
+      muted
+      class="w-full h-screen object-cover"
+    >
+    </video>
+  </div>
+  
+  <Logo class="w-12 mx-auto mt-12 mb-6" />
+</div>
