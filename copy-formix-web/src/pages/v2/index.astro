@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import NavBar from "../../components/NavBar.astro";
+import About from "../../components/About.astro";
+import Bento from "../../components/Bento.astro";
+import Footer from "../../components/Footer.astro";
+import Plans from "../../components/Plans.astro";
+
+---
+
+<Layout title="v2" description="v2">
+  <header class="fixed top-0 w-full h-auto z-50">
+    <NavBar />
+  </header>
+  <section class="v2 w-full h-screen grid place-content-center">
+    <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:12rem_15rem]"></div>
+    <div class="content bg-white p-2">
+      <div class="container w-full h-full flex flex-col gap-6">
+        <div
+          class="content flex flex-col gap-1 md:gap-4 items-center justify-center px-4 md:px-8 max-w-2xl mx-auto"
+        >
+          <div data-aos="fade-down" data-aos-duration="1000">
+            <span class="text-md md:text-xl font-normal text-tertiary text-center">
+              PLATAFORMA DE FORMULARIOS</span
+            >
+          </div>
+    
+          <h1 class="text-3xl font-bold text-center">
+            Libera tu creatividad con Formix!
+          </h1>
+          <p class="text-md md:text-xl font-light leading-tight text-center">
+            Diseña formularios personalizados en línea y contempla tus ideas cobrar
+            vida al instante
+          </p>
+          <Button size="lg" text="Empezar a usar Formix" className="" />
+          <img data-aos="fade-up" data-aos-duration="1000" src="/images/svg/animacion-movil.svg" width="300px" alt="Animacion">
+        </div>
+      </div>
+    </div>
+    <div class="form" />
+  </section>
+  
+  <Bento />
+  <Plans />
+  <About />
+  <Footer />
+</Layout>
+
+
+<style>
+
+  .form {
+    width: 12rem;
+    height: 15rem;
+    background-color: gainsboro;
+
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    animation: fly 5s ease infinite backwards;
+    z-index: -10;
+  }
+
+
+  @keyframes fly {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+    20% {
+      transform: rotateY(15deg) rotateX(-10deg) rotateZ(5deg) scale(1.05) translateX(3rem) translateY(-2rem) translateZ(0.5rem);
+      opacity: 1;
+    }
+    40% {
+      transform: rotateY(-20deg) rotateX(10deg) rotateZ(-10deg) scale(0.95) translateX(7rem) translateY(1rem) translateZ(-1rem);
+      opacity: 0.9;
+    }
+    60% {
+      transform: rotateY(25deg) rotateX(-15deg) rotateZ(15deg) scale(1.1) translateX(10rem) translateY(-3rem) translateZ(1rem);
+      opacity: 0.7;
+    }
+    80% {
+      transform: rotateY(-30deg) rotateX(20deg) rotateZ(-5deg) scale(0.9) translateX(15rem) translateY(1rem) translateZ(-1.5rem);
+      opacity: 0.5;
+    }
+    100% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1) translateX(20rem) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+  }
+
+  header {
+    animation: enhance_header linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 300px;
+  }
+
+  @keyframes enhance_header {
+    to {
+      backdrop-filter: blur(20px);
+    }
+  }
+</style>

@@ -2,14 +2,19 @@
 import Button from "./Button.astro";
 ---
 
-<section class="hero w-full h-[calc(100vh+100px)] relative drop-shadow-xl">
+<section
+  class="hero w-full h-[calc(100vh+100px)] max-h-[1280px] relative drop-shadow-xl"
+>
   <div class="container w-full h-full flex flex-col gap-6">
     <div
       class="content flex flex-col gap-1 md:gap-4 items-center justify-center pt-20 md:pt-28 px-4 md:px-8 max-w-2xl mx-auto"
     >
-      <span class="text-md md:text-xl font-normal text-tertiary text-center">
-        PLATAFORMA DE FORMULARIOS</span
-      >
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <span class="text-md md:text-xl font-normal text-tertiary text-center">
+          PLATAFORMA DE FORMULARIOS</span
+        >
+      </div>
+
       <h1 class="text-3xl font-bold text-center">
         Libera tu creatividad con Formix!
       </h1>
@@ -20,19 +25,25 @@ import Button from "./Button.astro";
       <Button size="md" text="Empezar a usar Formix" className="" />
     </div>
 
-    <div class="gallery">
+    <div class="gallery" data-aos="fade-up" data-aos-duration="1000">
       <div>
         <!-- <img src="/images/compartir.png" alt="Compartir" /> -->
       </div>
       <div>
-        <!-- <img src="/images/componentes.png" alt="Compartir" /> -->
+        <img
+          src="/images/form1.webp"
+          class="w-full h-full object-cover object-top"
+          alt="Compartir"
+        />
       </div>
       <div>
-        <!-- <img src="/images/computer-edit.webp" alt="Compartir" /> -->
+        <img
+          src="/images/form2.webp"
+          class="w-full h-full object-cover object-top"
+          alt="Compartir"
+        />
       </div>
-      <div>
-        <!-- <img src="/images/respuestas.png" alt="Compartir" /> -->
-      </div>
+      <div></div>
       <div>
         <!-- <img src="/images/temas.png" alt="Compartir" /> -->
       </div>
@@ -50,7 +61,15 @@ import Button from "./Button.astro";
     margin-inline: auto;
     overflow: hidden;
 
-    clip-path: polygon(50% 0%, 100% 0, 100% 80%, 50% 100%, 49% 100%, 0 80%, 0 0);
+    clip-path: polygon(
+      50% 0%,
+      100% 0,
+      100% 80%,
+      50% 100%,
+      49% 100%,
+      0 80%,
+      0 0
+    );
   }
 
   .gallery div {
@@ -92,7 +111,7 @@ import Button from "./Button.astro";
     background-color: black;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .gallery {
       width: 100%;
     }
@@ -121,5 +140,4 @@ import Button from "./Button.astro";
       background-color: tomato;
     }
   }
-
 </style>

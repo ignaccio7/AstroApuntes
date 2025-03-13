@@ -1,0 +1,39 @@
+---
+import Ema from "../Icons/Ema.astro";
+import Fac from "../Icons/Fac.astro";
+import Wap from "../Icons/Wap.astro";
+---
+
+<footer class="bg-secondary text-gray-300 relative">
+  <div class="container flex gap-2 justify-between">
+    <div class="designer pt-12">
+      <img
+        src="/images/logo_agetic.webp"
+        alt="Logo agetic"
+        class="w-32 h-auto absolute -top-1/5"
+      />
+      <div class="socials flex flex-col gap-2">
+        <h4>Siguenos en:</h4>
+        <div class="icons flex gap-2">
+          <Wap />
+          <Fac />
+          <Ema />
+        </div>
+      </div>
+    </div>
+    <div class="terms flex items-end">
+      <ul class="flex flex-col gap-2 text-sm">
+        <li>
+          <a href="/">Terminos de uso</a>
+        </li>
+        <li>
+          <a href="/">Privacidad</a>
+        </li>
+        <li>
+          <a href="/">Ciudadania digital</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-gray-300 text-sm text-center pb-2 pt-8">© Formix 2025</div>
+</footer>

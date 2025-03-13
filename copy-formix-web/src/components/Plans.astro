@@ -6,17 +6,21 @@ import IconWindows from "../Icons/IconWindows.astro";
 
 <section class="plans mt-14">
   <div class="container">
-    <h2 class="text-center text-3xl mb-10 font-semibold text-button">
+    <h2 class="text-center text-3xl mb-4 md:mb-10 font-semibold text-button">
       Beneficios de Formix
-    </h2>    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 grid-rows-[500px] overflow-hidden">
-      <div class="platforms">
-        <h3 class="text-2xl text-center font-semibold">Disponible en todas las plataformas</h3>
+    </h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap:2 md:gap-4 grid-rows-[500px] overflow-hidden"
+    >
+      <div class="platforms" data-aos="fade-left">
+        <h3 class="text-2xl text-center font-semibold">
+          Disponible en todas las plataformas
+        </h3>
         <p class="text-md font-light text-center">
           Descubre nuestra aplicación en tus distintos dispositivos
         </p>
         <div class="flex items-center justify-center">
-          <img src="/images/Plans1.png" alt="">
+          <img src="/images/Plans1.png" alt="" />
           <div class="flex flex-col gap-4 h-full justify-around">
             <div class="platform-item">
               <IconWindows size="72" />
@@ -30,12 +34,27 @@ import IconWindows from "../Icons/IconWindows.astro";
           </div>
         </div>
       </div>
-      <div class="plans">
-        <h3 class="text-2xl text-center font-semibold">Nuestros Planes de pago</h3>
+      <div class="plans" data-aos="fade-right">
+        <h3 class="text-2xl text-center font-semibold">
+          Nuestros Planes de pago
+        </h3>
         <p class="text-md font-light text-center">
-          Actualmente, todo nuestro producto es <span class="text-tertiary font-black">¡GRATIS!</span>
+          Actualmente, todo nuestro producto es <span
+            class="text-tertiary font-black">¡GRATIS!</span
+          >
         </p>
-        <img class="mt-2 block mx-auto w-auto h-full max-h-96 object-cover" src="/images/Plans2.png" alt="Planes">
+        <div class="relative">
+          <img
+            class="mt-2 block mx-auto w-auto h-full max-h-96 object-cover"
+            src="/images/Plans2.png"
+            alt="Planes"
+          />
+          <img
+            class="absolute w-48 h-auto left-1/2 -bottom-4"
+            src="/images/Plans3.png"
+            alt="Planes"
+          />
+        </div>
       </div>
     </div>
   </div>
