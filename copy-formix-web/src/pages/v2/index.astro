@@ -6,89 +6,409 @@ import About from "../../components/About.astro";
 import Bento from "../../components/Bento.astro";
 import Footer from "../../components/Footer.astro";
 import Plans from "../../components/Plans.astro";
-
 ---
 
 <Layout title="v2" description="v2">
   <header class="fixed top-0 w-full h-auto z-50">
     <NavBar />
   </header>
-  <section class="v2 w-full h-screen grid place-content-center">
-    <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:12rem_15rem]"></div>
-    <div class="content bg-white p-2">
-      <div class="container w-full h-full flex flex-col gap-6">
-        <div
-          class="content flex flex-col gap-1 md:gap-4 items-center justify-center px-4 md:px-8 max-w-2xl mx-auto"
-        >
-          <div data-aos="fade-down" data-aos-duration="1000">
-            <span class="text-md md:text-xl font-normal text-tertiary text-center">
-              PLATAFORMA DE FORMULARIOS</span
-            >
+  <div class="container overflow-hidden">
+    <section
+      class="v2 w-full h-screen relative flex justify-center items-center overflow-hidden max-h-[1200px]"
+    >
+      <div
+        class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:12rem_15rem]"
+      > 
+      </div>
+      <div class="content bg-white p-2 py-6 shadow-xl">
+        <div class="w-full h-full flex flex-col gap-6">
+          <div
+            class="content flex flex-col gap-3 sm:gap-4 items-center justify-center px-4 max-w-2xl mx-auto"
+          >
+            <div data-aos="fade-down" data-aos-duration="1000">
+              <span
+                class="text-md sm:text-xl font-normal text-tertiary text-center"
+              >
+                PLATAFORMA DE FORMULARIOS</span
+              >
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-bold text-center">
+              Libera tu creatividad con
+              <img
+                src="/images/logo.webp"
+                alt="Formix"
+                class="w-52 sm:w-full max-w-80 h-auto mx-auto"
+              />
+            </h1>
+            <p class="text-sm sm:text-xl font-light leading-tight text-center">
+              Diseña formularios personalizados en línea y contempla tus ideas
+              cobrar vida al instante
+            </p>
+            <Button size={`md`} text="Empezar a usar Formix" className="" />
           </div>
-    
-          <h1 class="text-3xl font-bold text-center">
-            Libera tu creatividad con Formix!
-          </h1>
-          <p class="text-md md:text-xl font-light leading-tight text-center">
-            Diseña formularios personalizados en línea y contempla tus ideas cobrar
-            vida al instante
-          </p>
-          <Button size="lg" text="Empezar a usar Formix" className="" />
-          <img data-aos="fade-up" data-aos-duration="1000" src="/images/svg/animacion-movil.svg" width="300px" alt="Animacion">
         </div>
       </div>
-    </div>
-    <div class="form" />
-  </section>
-  
+      <div class="form form1"></div>
+      <div class="form form2"></div>
+      <div class="form form3"></div>
+      <div class="form form4"></div>
+      <div class="form form5"></div>
+      <div class="form form6"></div>
+      <div class="form form7"></div>
+      <div class="form form8"></div>
+    </section>
+  </div>
+
   <Bento />
   <Plans />
   <About />
   <Footer />
 </Layout>
 
-
 <style>
-
   .form {
     width: 12rem;
     height: 15rem;
     background-color: gainsboro;
-
     position: absolute;
-    
-    top: 0;
-    left: 0;
-    animation: fly 5s ease infinite backwards;
+    animation: fly 30s linear infinite;
     z-index: -10;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff, #e2e2e2);
+    border-radius: 2px;
   }
 
+  /* Efecto de doblado en la esquina */
+  .form::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 2rem 2rem 0;
+    border-color: transparent rgba(200, 200, 200, 0.5) transparent transparent;
+    animation: fold 20s linear infinite;
+  }
 
-  @keyframes fly {
-    0% {
-      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0) translateZ(0);
-      opacity: 0;
+  @keyframes fold {
+    0%,
+    100% {
+      opacity: 0.2;
     }
-    20% {
-      transform: rotateY(15deg) rotateX(-10deg) rotateZ(5deg) scale(1.05) translateX(3rem) translateY(-2rem) translateZ(0.5rem);
-      opacity: 1;
+    25% {
+      opacity: 0.8;
     }
-    40% {
-      transform: rotateY(-20deg) rotateX(10deg) rotateZ(-10deg) scale(0.95) translateX(7rem) translateY(1rem) translateZ(-1rem);
+    50% {
+      opacity: 0.6;
+    }
+    75% {
       opacity: 0.9;
     }
-    60% {
-      transform: rotateY(25deg) rotateX(-15deg) rotateZ(15deg) scale(1.1) translateX(10rem) translateY(-3rem) translateZ(1rem);
-      opacity: 0.7;
-    }
-    80% {
-      transform: rotateY(-30deg) rotateX(20deg) rotateZ(-5deg) scale(0.9) translateX(15rem) translateY(1rem) translateZ(-1.5rem);
-      opacity: 0.5;
-    }
-    100% {
-      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1) translateX(20rem) translateY(0) translateZ(0);
+  }
+
+  @keyframes fly {
+    /* Inicio */
+    0% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1)
+        translateX(0) translateY(0) translateZ(0);
       opacity: 0;
     }
+
+    /* Aparece y comienza a flotar */
+    10% {
+      transform: rotateY(8deg) rotateX(-5deg) rotateZ(3deg) scale(1.02)
+        translateX(2rem) translateY(-1rem) translateZ(0.3rem);
+      opacity: 0.7;
+    }
+
+    /* Continúa flotando y rotando suavemente */
+    20% {
+      transform: rotateY(15deg) rotateX(-10deg) rotateZ(5deg) scale(1.05)
+        translateX(4rem) translateY(-2rem) translateZ(0.5rem);
+      opacity: 1;
+    }
+
+    30% {
+      transform: rotateY(5deg) rotateX(0deg) rotateZ(-3deg) scale(1)
+        translateX(6rem) translateY(-0.5rem) translateZ(0rem);
+      opacity: 0.95;
+    }
+
+    /* Comienza a girar como dando media vuelta */
+    40% {
+      transform: rotateY(-20deg) rotateX(10deg) rotateZ(-8deg) scale(0.98)
+        translateX(8rem) translateY(0.5rem) translateZ(-0.8rem);
+      opacity: 0.9;
+    }
+
+    /* Continúa el giro */
+    50% {
+      transform: rotateY(-35deg) rotateX(5deg) rotateZ(-12deg) scale(0.95)
+        translateX(10rem) translateY(-1rem) translateZ(-1.2rem);
+      opacity: 0.8;
+    }
+
+    /* Comienza a regresar del giro */
+    60% {
+      transform: rotateY(25deg) rotateX(-15deg) rotateZ(12deg) scale(1.05)
+        translateX(12rem) translateY(-2.5rem) translateZ(0.7rem);
+      opacity: 0.7;
+    }
+
+    70% {
+      transform: rotateY(15deg) rotateX(-10deg) rotateZ(5deg) scale(1)
+        translateX(14rem) translateY(-1.5rem) translateZ(0.3rem);
+      opacity: 0.6;
+    }
+
+    /* Continúa el movimiento flotante */
+    80% {
+      transform: rotateY(-15deg) rotateX(12deg) rotateZ(-5deg) scale(0.95)
+        translateX(16rem) translateY(0.5rem) translateZ(-0.5rem);
+      opacity: 0.6;
+    }
+
+    90% {
+      transform: rotateY(-5deg) rotateX(5deg) rotateZ(-2deg) scale(0.97)
+        translateX(18rem) translateY(0.2rem) translateZ(-0.2rem);
+      opacity: 0.5;
+    }
+
+    /* Desaparece */
+    100% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1)
+        translateX(20rem) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes flyFromRight {
+    /* Inicio */
+    0% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1)
+        translateX(0) translateY(0) translateZ(0);
+      opacity: 0;
+    }
+
+    /* Aparece y comienza a flotar desde la derecha */
+    5% {
+      transform: rotateY(-10deg) rotateX(3deg) rotateZ(-2deg) scale(0.98)
+        translateX(-2rem) translateY(1rem) translateZ(0.4rem);
+      opacity: 0.3;
+    }
+
+    10% {
+      transform: rotateY(-15deg) rotateX(7deg) rotateZ(-5deg) scale(0.95)
+        translateX(-4rem) translateY(2rem) translateZ(0.8rem);
+      opacity: 0.5;
+    }
+
+    /* Gira suavemente mientras va flotando */
+    18% {
+      transform: rotateY(5deg) rotateX(-3deg) rotateZ(8deg) scale(1.02)
+        translateX(-7rem) translateY(-1rem) translateZ(0.3rem);
+      opacity: 0.7;
+    }
+
+    25% {
+      transform: rotateY(12deg) rotateX(-8deg) rotateZ(4deg) scale(1.04)
+        translateX(-9rem) translateY(-2.5rem) translateZ(-0.2rem);
+      opacity: 0.9;
+    }
+
+    /* Hace un ligero bucle */
+    32% {
+      transform: rotateY(-8deg) rotateX(12deg) rotateZ(-7deg) scale(0.97)
+        translateX(-11rem) translateY(-1rem) translateZ(-0.5rem);
+      opacity: 1;
+    }
+
+    40% {
+      transform: rotateY(-20deg) rotateX(5deg) rotateZ(-12deg) scale(0.95)
+        translateX(-13rem) translateY(0.5rem) translateZ(-0.9rem);
+      opacity: 0.95;
+    }
+
+    /* Se balancea hacia el lado contrario */
+    48% {
+      transform: rotateY(30deg) rotateX(-10deg) rotateZ(10deg) scale(1.03)
+        translateX(-15rem) translateY(-1.5rem) translateZ(0.4rem);
+      opacity: 0.9;
+    }
+
+    56% {
+      transform: rotateY(15deg) rotateX(-15deg) rotateZ(5deg) scale(1.06)
+        translateX(-17rem) translateY(-3rem) translateZ(0.7rem);
+      opacity: 0.85;
+    }
+
+    /* Comienza a caer suavemente */
+    64% {
+      transform: rotateY(-5deg) rotateX(5deg) rotateZ(-9deg) scale(0.98)
+        translateX(-18.5rem) translateY(-1rem) translateZ(0.2rem);
+      opacity: 0.8;
+    }
+
+    72% {
+      transform: rotateY(-25deg) rotateX(8deg) rotateZ(-15deg) scale(0.94)
+        translateX(-20rem) translateY(1rem) translateZ(-0.6rem);
+      opacity: 0.75;
+    }
+
+    /* Rebote final antes de desaparecer */
+    80% {
+      transform: rotateY(18deg) rotateX(-7deg) rotateZ(13deg) scale(1.02)
+        translateX(-22rem) translateY(-1rem) translateZ(0.3rem);
+      opacity: 0.6;
+    }
+
+    88% {
+      transform: rotateY(10deg) rotateX(-4deg) rotateZ(7deg) scale(0.99)
+        translateX(-24rem) translateY(-0.5rem) translateZ(0.1rem);
+      opacity: 0.4;
+    }
+
+    95% {
+      transform: rotateY(3deg) rotateX(-2deg) rotateZ(2deg) scale(0.97)
+        translateX(-26rem) translateY(-0.2rem) translateZ(0rem);
+      opacity: 0.2;
+    }
+
+    /* Desaparece */
+    100% {
+      transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(0.95)
+        translateX(-28rem) translateY(0) translateZ(-0.1rem);
+      opacity: 0;
+    }
+  }
+
+  @keyframes foldPulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes floatContinuous {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0) rotateX(0deg) rotateY(0deg)
+        rotateZ(0deg) scale(1);
+    }
+
+    10% {
+      transform: translateY(-1rem) translateX(0.7rem) rotateX(2deg)
+        rotateY(5deg) rotateZ(1deg) scale(1.02);
+    }
+
+    20% {
+      transform: translateY(-1.6rem) translateX(1.2rem) rotateX(4deg)
+        rotateY(8deg) rotateZ(2deg) scale(1.03);
+    }
+
+    30% {
+      transform: translateY(-1.2rem) translateX(0.8rem) rotateX(3deg)
+        rotateY(3deg) rotateZ(0deg) scale(1.02);
+    }
+
+    40% {
+      transform: translateY(0.2rem) translateX(0rem) rotateX(-1deg)
+        rotateY(-2deg) rotateZ(-2deg) scale(0.99);
+    }
+
+    50% {
+      transform: translateY(1rem) translateX(-0.6rem) rotateX(-3deg)
+        rotateY(-8deg) rotateZ(-3deg) scale(0.98);
+    }
+
+    60% {
+      transform: translateY(0.8rem) translateX(-1rem) rotateX(-2deg)
+        rotateY(-5deg) rotateZ(-1deg) scale(0.99);
+    }
+
+    70% {
+      transform: translateY(0.4rem) translateX(-0.8rem) rotateX(-1deg)
+        rotateY(-3deg) rotateZ(1deg) scale(1);
+    }
+
+    80% {
+      transform: translateY(-0.2rem) translateX(-0.4rem) rotateX(1deg)
+        rotateY(-2deg) rotateZ(2deg) scale(1.01);
+    }
+
+    90% {
+      transform: translateY(-0.6rem) translateX(-0.2rem) rotateX(2deg)
+        rotateY(-1deg) rotateZ(1deg) scale(1.005);
+    }
+  }
+
+  .form1 {
+    top: 2rem;
+    left: 0;
+    animation-delay: 10s;
+    animation-fill-mode: backwards;
+  }
+
+  .form2 {
+    top: 35%;
+    left: 0;
+    animation-fill-mode: backwards;
+  }
+
+  .form3 {
+    top: 65%;
+    right: 0;
+    animation-delay: 20s;
+    animation-fill-mode: backwards;
+  }
+
+  .form4 {
+    top: 2rem;
+    right: 0;
+    animation-delay: 15s;
+    animation-name: flyFromRight;
+    animation-fill-mode: backwards;
+  }
+
+  .form5 {
+    top: 35%;
+    right: 0;
+    animation-delay: 5s;
+    animation-name: flyFromRight;
+    animation-fill-mode: backwards;
+  }
+
+  .form6 {
+    top: 65%;
+    right: 0;
+    animation-delay: 25s;
+    animation-name: flyFromRight;
+    animation-fill-mode: backwards;
+  }
+
+  .form7 {
+    width: 15rem;
+    height: 12rem;
+    top: 20%;
+    right: 25%;
+    animation-name: floatContinuous;
+    animation-fill-mode: both;
+  }
+
+  .form8 {
+    width: 15rem;
+    height: 12rem;
+    top: 65%;
+    right: 50%;
+    animation-name: floatContinuous;
+    animation-fill-mode: both;
   }
 
   header {

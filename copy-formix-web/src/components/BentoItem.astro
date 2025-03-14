@@ -10,23 +10,27 @@ const { imageUrl, backgroundUrl, className = "" } = Astro.props;
 
 <div
   data-aos="fade-up"
-  class={`bento-item relative flex items-end justify-end
-    bg-linear-to-b from-30% to-gray-500/80 ${className} overflow-hidden
-    group hover:to-button/50 transition-colors duration-300 ease-in-out`}
+  class={`bento-item flex flex-col gap-2 items-end
+    overflow-hidden
+    group
+    rounded-md shadow-black/50 shadow-md
+    ${className}`}
 >
-  <img
-    class="absolute inset-0 w-full h-auto object-cover -z-10 group-hover:scale-110
-    transition-transform duration-300 ease-in-out"
-    src={backgroundUrl}
-    alt="Compartir"
-  />
-  <img
-    class="absolute bottom-0 right-0 w-80 -z-10"
-    src={imageUrl}
-    alt="animacion"
-  />
+  <div class="image w-full h-64 sm:h-[250px] md:h-[300px] relative bg-green-300 overflow-hidden">
+    <img
+      class="absolute inset-0 w-full h-full min-h-[250px] object-cover object-top 
+      group-hover:scale-110 transition-transform duration-300 ease-in-out"
+      src={backgroundUrl}
+      alt="Compartir"
+    />
+    <img
+      class="absolute bottom-0 right-0 w-60 object-bottom xl:w-72"
+      src={imageUrl}
+      alt="animacion"
+    />
+  </div>
   <div
-    class="content px-4 pb-4 text-slate-200 group-hover:text-slate-900 transition-colors duration-300 ease-in-out flex flex-col gap-2"
+    class="content px-4 pb-4 text-slate-200 flex flex-col gap-2 sm:gap-0 md:gap-2 grow"
   >
     <slot />
   </div>
