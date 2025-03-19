@@ -1,0 +1,470 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NavBar from "../../components/NavBar.astro";
+import Footer from "../../components/Footer.astro";
+import FieldText from "../../Icons/FieldText.astro";
+import FieldConfirm from "../../Icons/FieldConfirm.astro";
+import FieldMultiline from "../../Icons/FieldMultiline.astro";
+import FieldName from "../../Icons/FieldName.astro";
+---
+
+<Layout title="v2" description="v2">
+  <header class="fixed top-0 w-full h-auto z-50">
+    <NavBar />
+  </header>
+
+  <main class="grow pt-26 w-full container">
+    <div class="p-4 rounded-md bg-white/80">
+      <h2 class="text-3xl font-bold mb-4 text-center">Componentes</h2>
+      <p class="text-xl text-pretty">
+        Formix es tu solución integral para diseñar formularios impactantes y
+        adaptables a cualquier necesidad. Ahora, con una amplia gama de
+        componentes personalizables, puedes crear formularios interactivos y
+        optimizados para distintas situaciones. A continuación, te mostramos las
+        categorías y componentes que ofrece Formix para que puedas explorar y
+        aprovechar todas sus funcionalidades.
+      </p>
+    </div>
+    <div class="components py-6">
+      <article
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-md bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes de Entrada de Texto
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Formix te permite agregar diferentes tipos de campos para entrada de
+            texto, asegurando que los usuarios puedan ingresar información de
+            forma clara y efectiva. Los componentes incluyen:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Texto Simple:</strong
+                >
+                Ideal para respuestas breves o datos puntuales.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldMultiline /> Campo de Texto Multilínea:</strong
+                >
+                Diseñado para respuestas largas, ideal para comentarios o explicaciones
+                detalladas.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldName /> Nombre Completo:</strong
+                >
+                Un campo específico para la recolección del nombre completo del usuario,
+                dividiendo automáticamente nombres y apellidos.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldConfirm /> Campo de Confirmación:</strong
+                >
+                Utilizado para verificar información como correos electrónicos o
+                contraseñas.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <figure>
+        <img
+          src="/componente_entrada_texto.png"
+          alt="Componente de entrada de texto"
+        />
+      </figure>
+
+      <figure>
+        <img
+          src="/componentes_multimedia.png"
+          alt="Componente de entrada de texto"
+        />
+      </figure>
+
+      <article
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes de Selección y Opciones Múltiples
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Para obtener respuestas precisas a través de opciones predefinidas,
+            Formix incluye una variedad de componentes de selección. Esto
+            permite a los usuarios elegir entre múltiples opciones fácilmente:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Selección:</strong
+                >
+                Un menú desplegable que permite seleccionar una opción de una lista
+                predefinida.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo Radio:</strong
+                >
+                Permite seleccionar una sola opción dentro de un conjunto de alternativas.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Checkbox Múltiple:</strong
+                >
+                Permite seleccionar varias opciones simultáneamente.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Selector de Tabla:</strong
+                >
+                Un componente avanzado que permite seleccionar datos dentro de una
+                tabla personalizada.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes Multimedia e Interactivos
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Para formularios más complejos que requieren el uso de multimedia o
+            interacciones avanzadas, Formix ofrece los siguientes componentes:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Imagen:</strong
+                >
+                Permite subir y visualizar imágenes dentro del formulario.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Video y Audio:</strong
+                >
+                Facilita la inserción y reproducción de archivos multimedia.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Archivo:</strong
+                >
+                Ofrece la posibilidad de adjuntar archivos de distintos formatos.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo Multimedia:</strong
+                >
+                Un componente versátil que admite múltiples tipos de medios, desde
+                imágenes hasta videos.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <figure>
+        <img
+          src="/componentes_seleccion.png"
+          alt="Componente de entrada de texto"
+        />
+      </figure>
+
+      <figure>
+        <img src="/1.jpg" alt="Componente de entrada de texto" />
+      </figure>
+
+      <article
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes de Fecha, Hora y Ubicación
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Cuando se trata de gestionar información relacionada con fechas,
+            horas o ubicaciones, Formix ofrece componentes especializados para
+            simplificar la entrada de estos datos:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Fecha:</strong
+                >
+                Un calendario interactivo para la selección de fechas.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Hora:</strong
+                >
+                Permite seleccionar horas específicas, útil para formularios de planificación.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Rango de Fechas:</strong
+                >
+                Ideal para seleccionar periodos específicos, como fechas de inicio
+                y fin de eventos.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Ubicación:</strong
+                >
+                Permite ingresar o seleccionar ubicaciones geográficas.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <article
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes Especializados y Datos de Usuario
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Formix también ofrece componentes para necesidades específicas,
+            asegurando que se cubran todos los aspectos de recolección de datos:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Calificación:</strong
+                >
+                Permite a los usuarios valorar servicios o productos.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Escala Lineal:</strong
+                >
+                Utilizada para encuestas donde se requiere una puntuación en una
+                escala numérica.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Datos de Usuario:</strong
+                >
+                Un componente que automáticamente recopila y muestra la información
+                del usuario registrado.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Enlace:</strong
+                >
+                Añade enlaces personalizados a otros sitios web o recursos dentro
+                del formulario.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <figure>
+        <img src="/2.jpg" alt="Componente de entrada de texto" />
+      </figure>
+    </div>
+  </main>
+
+  <!-- <img id="line" src="/line.svg" alt="line" class="line" /> -->
+
+  <svg
+    width="1288"
+    height="3603"
+    viewBox="0 0 1288 3603"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="line"
+  >
+    <path
+      d="M667.5 0C667.5 0 788 296.5 667.5 338C547 379.5 -55.4999 347.5 14.0001 528C83.5001 708.5 1288.5 700 1279 940.5C1269.5 1181 83.5001 1042.5 83.5001 1288C83.5001 1533.5 1214 1352.5 1214 1616.5C1214 1880.5 83.5001 1755 83.5001 2005.5C83.5001 2256 1172.5 1918 1214 2223.5C1255.5 2529 83.5001 2492 83.5001 2788.5C83.5001 3085 1214 2636 1214 2974C1214 3312 153.5 3081 144 3252C134.5 3423 806.5 3520.5 713.5 3604"
+      stroke="#23ADD3"
+      stroke-width="16"></path>
+  </svg>
+
+  <Footer />
+</Layout>
+
+<script type="module">
+  const line = document.querySelector(".line");
+  line.setAttribute("preserveAspectRatio", "none");
+  const main = document.querySelector("main");
+
+  // console.log(line);
+  // console.log(main);
+
+  const heightMain = main?.offsetHeight;
+  // console.log(heightMain);
+
+  if (line) {
+    line.style.height = `${heightMain}px`;
+  }
+
+  window.addEventListener("resize", () => {
+    const heightMain = main?.offsetHeight;
+    if (line) {
+      line.style.height = `${heightMain}px`;
+    }
+  });
+
+  window.addEventListener("load", () => {
+    const heightMain = main?.offsetHeight;
+    if (line) {
+      line.style.height = `${heightMain}px`;
+    }
+  });
+
+
+  // animacion con scroll
+  const path = line.querySelector("path")
+  const scrollAnimation = () => {
+    const pathLength = path.getTotalLength();
+
+    path.style.strokeDasharray = `${pathLength * 0.5}`
+  }
+
+  scrollAnimation();
+  window.addEventListener("scroll", scrollAnimation);
+
+</script>
+
+<style>
+  .line {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 0;
+    z-index: 10;
+    overflow: visible;
+    max-width: 1920px;
+    margin-inline: auto;
+    /* z-index: -10; */
+    /* object-fit: cover; */
+    object-fit: fill;
+  }
+
+  .box {
+    position: fixed;
+    width: 100%;
+    height: 70dvh;
+    bottom: 0;
+    background-color: white;
+    z-index: -5;
+  }
+
+  header {
+    animation: enhance_header linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 300px;
+  }
+
+  @keyframes enhance_header {
+    to {
+      backdrop-filter: blur(20px);
+    }
+  }
+
+  .components {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .components figure,
+  .components article {
+    grid-row: span 2;
+  }
+
+  .components img {
+    width: 100%;
+    height: 100%;
+    object-position: top left;
+  }
+
+  @media (max-width: 768px) {
+    .components {
+      grid-template-columns: 1fr;
+    }
+    .components figure,
+    .components article {
+      grid-row: span 1;
+    }
+  }
+
+  article {
+  }
+</style>
