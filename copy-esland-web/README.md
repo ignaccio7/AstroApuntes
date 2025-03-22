@@ -102,3 +102,16 @@ Para la galeria tenemos diferentes opciones como ser:
 
 El diseño [masonry](https://github.com/andreasbm/masonry-layout)
 
+
+Para la autenticacion usaremos [astro auth](https://docs.astro.build/es/guides/authentication/)
+
+```bash
+pnpm astro add auth-astro
+```
+
+
+
+
+```bash
+
+```

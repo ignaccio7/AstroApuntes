@@ -8,7 +8,7 @@ const { className = "", href } = Astro.props;
 ---
 
 <a
-  class={`border border-white w-fit mx-auto rounded-full px-4 py-2 text-md text-white font-bold font-jura cursor-pointer ${className}`}
+  class={`${className} border border-white w-fit mx-auto rounded-full px-4 py-2 text-md text-white font-bold font-jura cursor-pointer`}
   {...(href && { href })}
 >
   <slot />

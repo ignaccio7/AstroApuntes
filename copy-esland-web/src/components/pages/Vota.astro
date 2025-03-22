@@ -1,12 +1,70 @@
 ---
+import Compartir from "../../Icons/Compartir.astro";
+import Enviar from "../../Icons/Enviar.astro";
+import Orden from "../../Icons/Orden.astro";
+import Piensa from "../../Icons/Piensa.astro";
+import Ranked from "../../Icons/Ranked.astro";
+import VotaIcon from "../../Icons/Vota.astro";
 import Button from "../Button.astro";
-
-
 ---
 
-<section class="vota min-h-screen mt-32">
-  <h1>Las Votaciones ya estan aqui</h1>
-  <Button href="/vota2">
+<section
+  class="relative vota min-h-screen pt-24 pb-8 text-white mx-auto px-8 max-w-7xl"
+>
+  <div
+    class="absolute inset-0 w-full h-full bg-center bg-cover -z-10"
+    style="background-image: url('/images/vota/vota-bkg.webp');"
+  >
+  </div>
+  <h1 class="sm:text-3xl text-4xl mb-4 uppercase font-bold">
+    Las Votaciones <br /> ya estan aqui
+  </h1>
+  <Button href="/vota2" className="text-xs md:text-xl">
     ¡Empezar con las votaciones!
   </Button>
-</section> 
+
+  <div class="content max-w-2xl">
+    <p class="mt-4">
+      Ha llegado el momento más importante. <strong
+        >Votar en la 3ª Edición de los Premios</strong
+      > . Para que tus votos se contabilicen de forma correcta, te dejamos algunos
+      consejos:
+    </p>
+
+    <ul class="mt-4 flex flex-col gap-4">
+      <li class="flex gap-2 items-center">
+        <VotaIcon />
+        <span
+          >Vota, por orden de preferencia, hasta 4 nominados por categoría.</span
+        >
+      </li>
+      <li class="flex gap-2 items-center">
+        <Orden />
+        <span>No es obligatorio votar en cada categoría.</span>
+      </li>
+      <li class="flex gap-2 items-center">
+        <Ranked />
+        <span
+          >No es obligatorio pero sí recomendable el uso del voto rankeado.</span
+        >
+      </li>
+      <li class="flex gap-2 items-center">
+        <Enviar />
+        <span
+          >Una vez tengas clara tu elección, asegúrate de pulsar “enviar mis
+          votos”.</span
+        >
+      </li>
+      <li class="flex gap-2 items-center">
+        <Compartir /><span
+          >Recuerda compartir tus votos en redes sociales.</span>
+      </li>
+      <li class="flex gap-2 items-center">
+        <Piensa />
+        <span
+          >Elige sabiamente y revisa tus votos, solo tienes una oportunidad.</span
+        >
+      </li>
+    </ul>
+  </div>
+</section>
