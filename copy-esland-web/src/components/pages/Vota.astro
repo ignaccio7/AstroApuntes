@@ -5,66 +5,120 @@ import Orden from "../../Icons/Orden.astro";
 import Piensa from "../../Icons/Piensa.astro";
 import Ranked from "../../Icons/Ranked.astro";
 import VotaIcon from "../../Icons/Vota.astro";
-import Button from "../Button.astro";
+// import Button from "../Button.astro";
+import { VoteSystem } from "../VoteSystem"
+
+import { getSession } from "auth-astro/server";
+
+// Aqui vera si tiene la cookie para ver si esta o no registrado
+const session = await getSession(Astro.request);
+
+const bkg = !session ? "vota-bkg.webp" : "vote-system-bkg.webp";
 ---
 
-<section
-  class="relative vota min-h-screen pt-24 pb-8 text-white mx-auto px-8 max-w-7xl"
->
-  <div
-    class="absolute inset-0 w-full h-full bg-center bg-cover -z-10"
-    style="background-image: url('/images/vota/vota-bkg.webp');"
-  >
-  </div>
-  <h1 class="sm:text-3xl text-4xl mb-4 uppercase font-bold">
-    Las Votaciones <br /> ya estan aqui
-  </h1>
-  <Button href="/vota2" className="text-xs md:text-xl">
-    ¡Empezar con las votaciones!
-  </Button>
+<section class="relative mx-auto vota min-h-screen pt-24 pb-8 text-white">
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="absolute inset-0 w-full h-full bg-center bg-cover -z-10 mx-auto"
+      style={`background-image: url('/images/vota/${bkg}');`}
+    >
+      <!-- <Button href="/vota2" className="text-xs md:text-xl">
+        ¡Empezar con las votaciones!
+      </Button> -->
+    </div>
 
-  <div class="content max-w-2xl">
-    <p class="mt-4">
-      Ha llegado el momento más importante. <strong
-        >Votar en la 3ª Edición de los Premios</strong
-      > . Para que tus votos se contabilicen de forma correcta, te dejamos algunos
-      consejos:
-    </p>
+    {
+      !session && (
+        <div>
+          <div class="content withoutsession">
+            <h1 class="sm:text-3xl text-4xl mb-4 uppercase font-bold">
+              Las Votaciones <br /> ya estan aqui
+            </h1>
+            <button
+              id="signInGithub"
+              class={`border border-white w-fit mx-auto rounded-full px-4 py-2 text-md text-white font-bold font-jura cursor-pointer`}
+            >
+              ¡Empezar con las votaciones!
+            </button>
 
-    <ul class="mt-4 flex flex-col gap-4">
-      <li class="flex gap-2 items-center">
-        <VotaIcon />
-        <span
-          >Vota, por orden de preferencia, hasta 4 nominados por categoría.</span
-        >
-      </li>
-      <li class="flex gap-2 items-center">
-        <Orden />
-        <span>No es obligatorio votar en cada categoría.</span>
-      </li>
-      <li class="flex gap-2 items-center">
-        <Ranked />
-        <span
-          >No es obligatorio pero sí recomendable el uso del voto rankeado.</span
-        >
-      </li>
-      <li class="flex gap-2 items-center">
-        <Enviar />
-        <span
-          >Una vez tengas clara tu elección, asegúrate de pulsar “enviar mis
-          votos”.</span
-        >
-      </li>
-      <li class="flex gap-2 items-center">
-        <Compartir /><span
-          >Recuerda compartir tus votos en redes sociales.</span>
-      </li>
-      <li class="flex gap-2 items-center">
-        <Piensa />
-        <span
-          >Elige sabiamente y revisa tus votos, solo tienes una oportunidad.</span
-        >
-      </li>
-    </ul>
+            <div class="content max-w-2xl">
+              <p class="mt-4">
+                Ha llegado el momento más importante.{" "}
+                <strong>Votar en la 3ª Edición de los Premios</strong> . Para
+                que tus votos se contabilicen de forma correcta, te dejamos
+                algunos consejos:
+              </p>
+
+              <ul class="mt-4 flex flex-col gap-4">
+                <li class="flex gap-2 items-center">
+                  <VotaIcon />
+                  <span>
+                    Vota, por orden de preferencia, hasta 4 nominados por
+                    categoría.
+                  </span>
+                </li>
+                <li class="flex gap-2 items-center">
+                  <Orden />
+                  <span>No es obligatorio votar en cada categoría.</span>
+                </li>
+                <li class="flex gap-2 items-center">
+                  <Ranked />
+                  <span>
+                    No es obligatorio pero sí recomendable el uso del voto
+                    rankeado.
+                  </span>
+                </li>
+                <li class="flex gap-2 items-center">
+                  <Enviar />
+                  <span>
+                    Una vez tengas clara tu elección, asegúrate de pulsar
+                    “enviar mis votos”.
+                  </span>
+                </li>
+                <li class="flex gap-2 items-center">
+                  <>
+                    <Compartir />
+                    <span>Recuerda compartir tus votos en redes sociales.</span>
+                  </>
+                </li>
+                <li class="flex gap-2 items-center">
+                  <Piensa />
+                  <span>
+                    Elige sabiamente y revisa tus votos, solo tienes una
+                    oportunidad.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      session && (
+        <VoteSystem client:load />
+      )
+    }
   </div>
 </section>
+
+<script>
+  const { signIn, signOut } = await import("auth-astro/client");
+
+  const $bntSignin = document.getElementById("signInGithub");
+
+  $bntSignin?.addEventListener("click", async () => {
+    await signIn("github");
+  });
+</script>
+
+<style>
+  button {
+    transition: all 0.25s ease-in-out;
+  }
+  button:hover {
+    box-shadow: 0px 0px 10px #fff;
+    text-shadow: 0px 0px 10px #fff;
+  }
+</style>

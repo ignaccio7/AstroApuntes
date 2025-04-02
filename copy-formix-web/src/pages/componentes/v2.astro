@@ -84,12 +84,18 @@ import FieldName from "../../Icons/FieldName.astro";
         </div>
       </article>
 
-      <figure>
-        <img
-          src="/componente_entrada_texto.png"
-          alt="Componente de entrada de texto"
+      <div class="relative min-h-[700px] group">
+        <div                    
+          class="absolute inset-0 z-10 w-full h-full bg-blend-luminosity bg-button/80
+          bg-right-top bg-cover
+          group-hover:scale-110 group-hover:bg-blend-normal transition-all duration-300 ease-in-out"
+          style="background-image: url('/componente_entrada_texto.png');"
         />
-      </figure>
+        <img src="/person1.png" alt="Persona 1"
+        class="absolute z-20 bottom-0 right-0 left-0 w-xl h-auto overflow-hidden mx-auto">
+      </div>
+
+      <!-- otra seccion -->
 
       <figure>
         <img
@@ -339,65 +345,65 @@ import FieldName from "../../Icons/FieldName.astro";
       </figure>
 
       <article
-      class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
-    >
-      <header>
-        <h3 class="text-tertiary text-2xl font-semibold">
-          Componentes Especializados y Datos de Usuario
-        </h3>
-      </header>
-      <div class="content">
-        <p class="mb-4">
-          Formix también ofrece componentes para necesidades específicas,
-          asegurando que se cubran todos los aspectos de recolección de datos:
-        </p>
-        <ul class="pl-6 flex flex-col gap-2">
-          <li>
-            <p>
-              <strong
-                class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
-                ><FieldText /> Campo de Calificación:</strong
-              >
-              Permite a los usuarios valorar servicios o productos.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong
-                class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
-                ><FieldText /> Escala Lineal:</strong
-              >
-              Utilizada para encuestas donde se requiere una puntuación en una
-              escala numérica.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong
-                class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
-                ><FieldText /> Datos de Usuario:</strong
-              >
-              Un componente que automáticamente recopila y muestra la información
-              del usuario registrado.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong
-                class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
-                ><FieldText /> Campo de Enlace:</strong
-              >
-              Añade enlaces personalizados a otros sitios web o recursos dentro
-              del formulario.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </article>
+        class="h-fit flex flex-col gap-3 text-md p-8 border border-gray-200 rounded-md shadow-xl bg-white/80"
+      >
+        <header>
+          <h3 class="text-tertiary text-2xl font-semibold">
+            Componentes Especializados y Datos de Usuario
+          </h3>
+        </header>
+        <div class="content">
+          <p class="mb-4">
+            Formix también ofrece componentes para necesidades específicas,
+            asegurando que se cubran todos los aspectos de recolección de datos:
+          </p>
+          <ul class="pl-6 flex flex-col gap-2">
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Calificación:</strong
+                >
+                Permite a los usuarios valorar servicios o productos.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Escala Lineal:</strong
+                >
+                Utilizada para encuestas donde se requiere una puntuación en una
+                escala numérica.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Datos de Usuario:</strong
+                >
+                Un componente que automáticamente recopila y muestra la información
+                del usuario registrado.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong
+                  class="flex gap-2 overflow-hidden w-fit float-left mr-2 text-gray-800"
+                  ><FieldText /> Campo de Enlace:</strong
+                >
+                Añade enlaces personalizados a otros sitios web o recursos dentro
+                del formulario.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
 
-    <figure>
-      <img src="/2.jpg" alt="Componente de entrada de texto" />
-    </figure>
+      <figure>
+        <img src="/2.jpg" alt="Componente de entrada de texto" />
+      </figure>
     </div>
   </main>
 
@@ -449,36 +455,35 @@ import FieldName from "../../Icons/FieldName.astro";
     }
   });
 
-
   // animacion con scroll
-  const path = line.querySelector("path")
+  const path = line.querySelector("path");
   const scrollAnimation = () => {
-  // Obtener la altura total de desplazamiento disponible
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  
-  // Obtener la posición actual del scroll
-  const scrollPosition = window.scrollY;
-  
-  // Calcular el porcentaje de scroll (0 al inicio, 1 al final)
-  const scrollPercentage = Math.min(scrollPosition / scrollHeight, 1);
-  
-  // Obtener la longitud total del path
-  const pathLength = path.getTotalLength();
-  
-  // Establecer el dasharray y dashoffset para animar el path
-  path.style.strokeDasharray = `${pathLength}`;
-  path.style.strokeDashoffset = `${pathLength * (1 - scrollPercentage)}`;
-  
-  console.log(`Altura total: ${scrollHeight}`);
-  console.log(`Posición actual: ${scrollPosition}`);
-  console.log(`Porcentaje: ${scrollPercentage}`);
-  console.log(`PathLength: ${pathLength}`);
-  console.log(`Offset: ${pathLength * (1 - scrollPercentage)}`);
-}
+    // Obtener la altura total de desplazamiento disponible
+    const scrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    // Obtener la posición actual del scroll
+    const scrollPosition = window.scrollY;
+
+    // Calcular el porcentaje de scroll (0 al inicio, 1 al final)
+    const scrollPercentage = Math.min(scrollPosition / scrollHeight, 1);
+
+    // Obtener la longitud total del path
+    const pathLength = path.getTotalLength();
+
+    // Establecer el dasharray y dashoffset para animar el path
+    path.style.strokeDasharray = `${pathLength}`;
+    path.style.strokeDashoffset = `${pathLength * (1 - scrollPercentage)}`;
+
+    console.log(`Altura total: ${scrollHeight}`);
+    console.log(`Posición actual: ${scrollPosition}`);
+    console.log(`Porcentaje: ${scrollPercentage}`);
+    console.log(`PathLength: ${pathLength}`);
+    console.log(`Offset: ${pathLength * (1 - scrollPercentage)}`);
+  };
 
   scrollAnimation();
   window.addEventListener("scroll", scrollAnimation);
-
 </script>
 
 <style>
@@ -524,15 +529,16 @@ import FieldName from "../../Icons/FieldName.astro";
   }
 
   .components figure,
+  .components div,
   .components article {
     grid-row: span 2;
   }
-
+/* 
   .components img {
     width: 100%;
     height: 100%;
     object-position: top left;
-  }
+  } */
 
   @media (max-width: 768px) {
     .components {

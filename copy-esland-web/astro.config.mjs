@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 
 import auth from 'auth-astro';
+import vercelAdapter from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,5 +22,7 @@ export default defineConfig({
     }
   },
 
-  integrations: [react(), auth()]
+  integrations: [react(), auth()],
+  output: 'server',
+  adapter: vercelAdapter()
 });

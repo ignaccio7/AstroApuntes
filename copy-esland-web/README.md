@@ -109,9 +109,48 @@ Para la autenticacion usaremos [astro auth](https://docs.astro.build/es/guides/a
 pnpm astro add auth-astro
 ```
 
+Para hacer un inicio de sesion con TWICH usaremos la configuracion del repositorio de github. lo primero que debemos de hacer es ir a [twichdev](https://dev.twitch.tv/console) y registrar la aplicacion.
+como no funciono ahi lo intentamos con github
+Iremos al siguiente [link](https://github.com/settings/applications/new) y crearemos una nueva aplicacion y ahi sacaremos las llaves de cliente y secreto
 
-
+Adicional a eso necesitamos un adaptador para vercel ya que auth astro requiere un adaptador SSR para funcionar correctamente.
 
 ```bash
+pnpm add @astrojs/vercel
+```
 
+y habilitamos el adaptador en el archivo astro.config.mjs
+
+```javascript
+// @ts-check
+import { defineConfig } from 'astro/config';
+
+import tailwindcss from '@tailwindcss/vite';
+
+import react from '@astrojs/react';
+
+import auth from 'auth-astro';
+import vercelAdapter from '@astrojs/vercel';
+
+// https://astro.build/config
+export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()]
+  },
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false // es -> / y en -> /en
+      // prefixDefaultLocale: true // es -> /es y en -> /en
+    }
+  },
+
+  integrations: [react(), auth()],
+  output: 'server',
+  adapter: vercelAdapter()
+});
+```
+
+```
 ```

@@ -1,0 +1,191 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="multistep" description="multistep">
+  <div class="w-full h-dvh grid place-content-center bg-black text-white">
+    <h1 class="text-3xl text-center">MultiStep12345</h1>
+    <div class="multistep">
+      <form
+        class="w-[500px] h-[350px] mb-2 border border-gray-400 rounded-md shadow-md"
+      >
+        <fieldset class="step1">
+          <legend class="text-2xl pt-4 text-center">¿Que necesitas?</legend>
+          <div class="actions px-4 py-2 flex flex-col gap-4 grow justify-center">
+            <button
+              type="button"
+              id="goto2"
+              class="w-full h-fit px-4 py-2 text-center text-xl font-bold bg-gray-700 rounded-md"
+            >
+              + Formularios
+            </button>
+            <button
+              type="button"
+              id="goto3"
+              class="w-full h-fit px-4 py-2 text-center text-xl font-bold bg-blue-700 rounded-md"
+            >
+              + Temas
+            </button>
+            <button
+            type="button"
+              class="w-full h-fit px-4 py-2 text-center text-xl font-bold bg-green-700 rounded-md"
+            >
+              + Respuestas
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="step2">
+          <legend class="text-2xl pt-4 text-center">¿Cuantos formularios necesitas?</legend>
+          <div class="actions px-4 py-2 flex flex-col gap-4 grow justify-center">
+            <label for="formularios" class="text-xl">              
+              <input
+                type="text"
+                placeholder="Ingresa aqui"
+                id="formlarios"
+                class="w-full h-fit px-4 py-2 border border-gray-400 rounded-md"
+              />
+            </label>
+            <div class="actions w-full h-fit flex gap-2">
+              <button
+                class="w-full h-fit px-4 py-2 mb-2 text-center text-xl font-bold bg-purple-700 rounded-md"
+              >
+                Enviar
+              </button>
+              <button
+                type="button"                
+                class="w-full h-fit px-4 py-2 mb-2 text-center text-xl font-bold bg-sky-700 rounded-md goto1"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="step3">
+          <legend class="text-2xl pt-4 text-center">¿Cuantos Temas necesitas?</legend>
+          <div class="actions px-4 py-2 flex flex-col gap-4 grow justify-center">
+            <label for="formularios" class="text-xl">              
+              <input
+                type="text"
+                placeholder="Ingresa aqui"
+                id="formlarios"
+                class="w-full h-fit px-4 py-2 border border-gray-400 rounded-md"
+              />
+            </label>
+            <div class="actions w-full h-fit flex gap-2">
+              <button
+                class="w-full h-fit px-4 py-2 mb-2 text-center text-xl font-bold bg-purple-700 rounded-md"
+              >
+                Enviar
+              </button>
+              <button
+                type="button"                
+                class="w-full h-fit px-4 py-2 mb-2 text-center text-xl font-bold bg-sky-700 rounded-md goto1"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<script type="module">
+  const $ = (selector) => document.querySelector(selector),
+    $$ = (selector) => document.querySelectorAll(selector);
+
+  const step1 = $(".step1"),
+    step2 = $(".step2"),
+    step3 = $(".step3");
+
+  const buttonForms = $("#goto2"),
+    buttonBack = $(".goto1"),
+    buttonThemes = $("#goto3");
+
+  buttonBack.addEventListener("click", () => {
+    console.log('aaaa');
+    
+    step1.classList.add("mostrar")    
+    step2.classList.add("adelante")
+    // step3.classList.add("adelante")
+
+    step1.classList.remove("atras")
+    step2.classList.remove("mostrar")
+    step3.classList.remove("mostrar")
+
+    console.log(step3);
+    
+  })
+
+  buttonForms.addEventListener("click", () => {
+    step1.classList.add("atras")    
+    step2.classList.add("mostrar")   
+    
+    step1.classList.remove("mostrar")
+    step2.classList.remove("adelante")
+  })
+
+  buttonThemes.addEventListener("click", () => {
+    console.log('1');
+    
+    step1.classList.add("atras")    
+    step3.classList.add("mostrar")   
+    
+    step1.classList.remove("mostrar")
+    step3.classList.remove("adelante")
+  })
+
+</script>
+
+<style>
+
+form {
+  position: relative;
+  overflow: hidden;
+}
+
+fieldset {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  transition: all .5s ease-in-out;
+}
+
+fieldset div {
+  width: 100%;
+}
+
+form button {
+  width: 100%;
+}
+
+.step2,
+.step3 {
+  transform: translateX(100%);
+}
+
+.mostrar {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.adelante {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.atras {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+</style>
